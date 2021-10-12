@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "8oG9J0mUT0gCewcsR8AZ3W8dhb5etdne7KE6ehjxXG5oBhbuZv032kROJ3plFBeMxrC36X7gnjs3r+9kPPXtcQ==",
+  "success": true,
+  "projectFilePath": "D:\\Programmieren\\GitHub-Repos\\SortingViewer\\src\\SortingViewer_Tests\\SortingViewer_Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marku\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
+    "C:\\Users\\marku\\.nuget\\packages\\microsoft.net.test.sdk\\16.5.0\\microsoft.net.test.sdk.16.5.0.nupkg.sha512",
+    "C:\\Users\\marku\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "C:\\Users\\marku\\.nuget\\packages\\nunit3testadapter\\3.16.1\\nunit3testadapter.3.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
