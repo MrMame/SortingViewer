@@ -41,20 +41,6 @@ namespace SortingViewer_Tests.Model.Data {
         [TestCase(new int[] { },
              ExpectedResult = new float[] {})]
         public float[] Value_Array_is_Normalized(int[] testVals) {
-            // Calculate the Range fo Values for Referenze
-            int MinVal = int.MaxValue;
-            int MaxVal = int.MinValue;
-            foreach(int Value in testVals){
-                if(Value < MinVal ) MinVal = Value;
-                if(Value > MaxVal) MaxVal = Value;
-            }
-            
-            int ValueRange = MaxVal - (MinVal-1);   // Range  100 - 1 = 99 !! Thats wrong for us. desired range is 100 and not 99 ! so minval -1
-            // Normalize the Values
-            float[] normVals = new float[testVals.Length];
-            for(int i = 0;i<=testVals.Length-1;i++) {
-                normVals[i] = (float)testVals[i]/ValueRange;
-            }
             //Check
             var val = new SortingViewer.Model.Data.SortValues(testVals);
             return val.GetValuesNormalized();
