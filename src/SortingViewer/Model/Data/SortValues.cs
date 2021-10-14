@@ -52,14 +52,20 @@ namespace SortingViewer.Model.Data {
         /// <param name="values"></param>
         /// <returns></returns>
         private float[] CreateNormalized(int[] values) {
-            float[] retVals = new float[values.Length];
-            if(values.Length > 0) { 
-                _highestNumber = _values.Max();
-                for(int i = 0; i <= values.Length - 1; i++) {
-                    retVals[i] = (float)values[i] / _highestNumber;
-                }
+            // Calculate the Range fo Values for Referenze
+            int MinVal = int.MaxValue;
+            int MaxVal = int.MinValue;
+            foreach(int Value in values) {
+                if(Value < MinVal) MinVal = Value;
+                if(Value > MaxVal) MaxVal = Value;
             }
-            return retVals;
+            int ValueRange = MaxVal - (MinVal - 1);   // Range  100 - 1 = 99 !! Thats wrong for us. desired range is 100 and not 99 ! so minval -1
+            // Normalize the Values
+            float[] normVals = new float[values.Length];
+            for(int i = 0; i <= values.Length - 1; i++) {
+                normVals[i] = (float)values[i] / ValueRange;
+            }
+            return normVals;
         }
         #endregion
     }
