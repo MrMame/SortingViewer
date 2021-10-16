@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\iSortAlgorythmManager.cs" />
     <Compile Include="Controller\ISortControllerUserInterface.cs" />
+    <Compile Include="Controller\SortAlgorythmManager.cs" />
     <Compile Include="Controller\SortController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -89,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\UserInput\UserInputControl.resx">
+      <DependentUpon>UserInputControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Value\ValuesBarView.resx">
       <DependentUpon>ValuesBarView.cs</DependentUpon>
     </EmbeddedResource>

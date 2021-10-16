@@ -9,9 +9,6 @@ namespace SortingViewer.Model.Data {
 
         int[] _values;
         float[] _normalizedValues;
-        int _highestNumber;
-
-
 
         #region PROPERTIES
         /// <summary>

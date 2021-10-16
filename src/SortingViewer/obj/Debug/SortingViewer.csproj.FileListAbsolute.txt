@@ -9,3 +9,4 @@ D:\Programmieren\GitHub-Repos\SortingViewer\src\SortingViewer\obj\Debug\SortingV
 D:\Programmieren\GitHub-Repos\SortingViewer\src\SortingViewer\obj\Debug\SortingViewer.csprojAssemblyReference.cache
 D:\Programmieren\GitHub-Repos\SortingViewer\src\SortingViewer\obj\Debug\SortingViewer.MainForm.resources
 D:\Programmieren\GitHub-Repos\SortingViewer\src\SortingViewer\obj\Debug\SortingViewer.View.Value.ValuesBarView.resources
+D:\Programmieren\GitHub-Repos\SortingViewer\src\SortingViewer\obj\Debug\SortingViewer.View.UserInput.UserInputControl.resources

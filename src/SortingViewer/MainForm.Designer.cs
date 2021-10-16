@@ -33,6 +33,7 @@ namespace SortingViewer
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.valuesBarView1 = new SortingViewer.View.Value.ValuesBarView();
+            this.userInputControl1 = new SortingViewer.View.UserInput.UserInputControl();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -40,6 +41,7 @@ namespace SortingViewer
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,17 +51,19 @@ namespace SortingViewer
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1078, 727);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1078, 752);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -71,34 +75,52 @@ namespace SortingViewer
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.valuesBarView1);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 425);
-            this.splitContainer1.SplitterDistance = 193;
+            this.splitContainer1.Size = new System.Drawing.Size(1078, 727);
+            this.splitContainer1.SplitterDistance = 98;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Size = new System.Drawing.Size(800, 193);
-            this.splitContainer2.SplitterDistance = 393;
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.userInputControl1);
+            this.splitContainer2.Size = new System.Drawing.Size(1078, 98);
+            this.splitContainer2.SplitterDistance = 529;
             this.splitContainer2.TabIndex = 0;
             // 
             // valuesBarView1
             // 
+            this.valuesBarView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.valuesBarView1.BarsPadding = 5;
-            this.valuesBarView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.valuesBarView1.Location = new System.Drawing.Point(0, 0);
+            this.valuesBarView1.Location = new System.Drawing.Point(12, 15);
             this.valuesBarView1.Name = "valuesBarView1";
-            this.valuesBarView1.Size = new System.Drawing.Size(800, 228);
+            this.valuesBarView1.Size = new System.Drawing.Size(1054, 598);
             this.valuesBarView1.TabIndex = 0;
+            // 
+            // userInputControl1
+            // 
+            this.userInputControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userInputControl1.Location = new System.Drawing.Point(3, 9);
+            this.userInputControl1.Name = "userInputControl1";
+            this.userInputControl1.Size = new System.Drawing.Size(530, 86);
+            this.userInputControl1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1078, 752);
             this.Controls.Add(this.toolStripContainer1);
+            this.MinimumSize = new System.Drawing.Size(491, 483);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Resize += new System.EventHandler(this.MainForm_Resize);
@@ -109,6 +131,7 @@ namespace SortingViewer
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -121,6 +144,7 @@ namespace SortingViewer
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private View.Value.ValuesBarView valuesBarView1;
+        private View.UserInput.UserInputControl userInputControl1;
     }
 }
 
