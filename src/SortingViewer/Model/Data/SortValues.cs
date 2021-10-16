@@ -47,7 +47,11 @@ namespace SortingViewer.Model.Data {
 
         #region PRIVATES
         /// <summary>
-        /// Creates a Normalized Array of the values.
+        /// Creates a Normalized Array of the values. 
+        /// The Funktion Calculates the norm value of number inside the max-min range of all numbers.
+        /// Exmpl. {-50, -25, 0, 50} has a min of -50, a max of 50 , a range of 100 
+        /// and a result of {0, 0.25, 0.5, 1} 
+        /// Returned Number are floats rounded to 2 decimal places.
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
@@ -59,11 +63,11 @@ namespace SortingViewer.Model.Data {
                 if(Value < MinVal) MinVal = Value;
                 if(Value > MaxVal) MaxVal = Value;
             }
-            int ValueRange = MaxVal - (MinVal - 1);   // Range  100 - 1 = 99 !! Thats wrong for us. desired range is 100 and not 99 ! so minval -1
+            int ValueRange = MaxVal - MinVal;
             // Normalize the Values
             float[] normVals = new float[values.Length];
             for(int i = 0; i <= values.Length - 1; i++) {
-                normVals[i] = (float)values[i] / ValueRange;
+                normVals[i] = (float)Math.Round((float)(Math.Abs(values[i] - MinVal)) / ValueRange, 2);
             }
             return normVals;
         }
