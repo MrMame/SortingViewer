@@ -8,13 +8,19 @@ using System.Threading.Tasks;
 namespace SortingViewer.Controller {
     class SortAlgorythmManager : ISortAlgorythmManager {
 
-        Dictionary<String,ISortAlgorythm> _SortAlgos = new System.Collections.Generic.Dictionary<String, ISortAlgorythm>();
-
+        Dictionary<String,ISortAlgorythm> _SortAlgos = new Dictionary<String, ISortAlgorythm>();
 
         public SortAlgorythmManager() {
-          
+       
 
         }
 
+        public ISortAlgorythm GetAlgorythm(string SortAlgorythmName) {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetSortAlgorythmsNames() {
+            throw new NotImplementedException();
+        }
     }
 }
