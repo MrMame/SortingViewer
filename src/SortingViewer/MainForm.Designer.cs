@@ -32,8 +32,8 @@ namespace SortingViewer
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.valuesBarView1 = new SortingViewer.View.Value.ValuesBarView();
             this.userInputControl1 = new SortingViewer.View.UserInput.UserInputControl();
+            this.valuesBarView1 = new SortingViewer.View.Value.ValuesBarView();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -93,6 +93,16 @@ namespace SortingViewer
             this.splitContainer2.SplitterDistance = 529;
             this.splitContainer2.TabIndex = 0;
             // 
+            // userInputControl1
+            // 
+            this.userInputControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userInputControl1.Location = new System.Drawing.Point(3, 9);
+            this.userInputControl1.Name = "userInputControl1";
+            this.userInputControl1.Size = new System.Drawing.Size(530, 86);
+            this.userInputControl1.TabIndex = 0;
+            // 
             // valuesBarView1
             // 
             this.valuesBarView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -104,16 +114,6 @@ namespace SortingViewer
             this.valuesBarView1.Size = new System.Drawing.Size(1054, 598);
             this.valuesBarView1.TabIndex = 0;
             // 
-            // userInputControl1
-            // 
-            this.userInputControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userInputControl1.Location = new System.Drawing.Point(3, 9);
-            this.userInputControl1.Name = "userInputControl1";
-            this.userInputControl1.Size = new System.Drawing.Size(530, 86);
-            this.userInputControl1.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +123,7 @@ namespace SortingViewer
             this.MinimumSize = new System.Drawing.Size(491, 483);
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);

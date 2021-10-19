@@ -23,6 +23,7 @@ namespace SortingViewer.View.UserInput {
             InitializeComponent();
         }
 
+
         public void SetUserInputController(IUserInput Controller) {
             _uiController = Controller;
         }
@@ -65,6 +66,9 @@ namespace SortingViewer.View.UserInput {
 
         private void LoadSortAlgorythmnamesToCombobox(ISortAlgorythmManager Manager) {
             this.cmbSelectSortAlgorythm.Items.AddRange(_SortAlgoManager.GetSortAlgorythmsNames().ToArray());
+            if(_SortAlgoManager.GetSortAlgorythmsNames().Count > 0) this.cmbSelectSortAlgorythm.SelectedIndex = 0;
         }
+
+       
     }
 }

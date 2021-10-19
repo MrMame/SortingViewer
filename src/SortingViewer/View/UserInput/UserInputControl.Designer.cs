@@ -49,6 +49,7 @@ namespace SortingViewer.View.UserInput {
             this.cmbSelectSortAlgorythm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.cmbSelectSortAlgorythm, 2);
+            this.cmbSelectSortAlgorythm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSelectSortAlgorythm.FormattingEnabled = true;
             this.cmbSelectSortAlgorythm.Location = new System.Drawing.Point(3, 17);
             this.cmbSelectSortAlgorythm.Name = "cmbSelectSortAlgorythm";

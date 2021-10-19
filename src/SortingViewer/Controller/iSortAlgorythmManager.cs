@@ -9,5 +9,7 @@ namespace SortingViewer.Controller {
     public interface ISortAlgorythmManager {
         List<String> GetSortAlgorythmsNames();
         ISortAlgorythm GetAlgorythm(string SortAlgorythmName);
+        void AddAlgorythm(string UniqueName, ISortAlgorythm SortAlgorythm);
+
     }
 }

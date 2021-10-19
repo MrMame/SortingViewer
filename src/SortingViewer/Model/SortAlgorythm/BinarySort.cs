@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SortingViewer.Model.SortAlgorythm
 {
-    class BinarySearch:SortAlgorythm
+    class BinarySort:SortAlgorythm
     {
     }
 }

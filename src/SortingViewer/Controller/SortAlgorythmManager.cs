@@ -6,13 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer.Controller {
-    class SortAlgorythmManager : ISortAlgorythmManager {
+    public class SortAlgorythmManager : ISortAlgorythmManager {
 
         Dictionary<String,ISortAlgorythm> _SortAlgos = new Dictionary<String, ISortAlgorythm>();
 
         public SortAlgorythmManager() {
-       
-
         }
 
         public ISortAlgorythm GetAlgorythm(string SortAlgorythmName) {
@@ -20,7 +18,12 @@ namespace SortingViewer.Controller {
         }
 
         public List<string> GetSortAlgorythmsNames() {
-            throw new NotImplementedException();
+            return _SortAlgos.Keys.ToList<string>();
+        }
+
+        public void AddAlgorythm(string UniqueName, ISortAlgorythm SortAlgorythm) {
+            if(UniqueName == "") throw new ArgumentException("Empty Name is not allowed");
+            _SortAlgos.Add(UniqueName, SortAlgorythm);
         }
     }
 }

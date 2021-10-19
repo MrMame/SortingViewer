@@ -58,8 +58,8 @@
     </Compile>
     <Compile Include="Model\Data\ISortValues.cs" />
     <Compile Include="Model\Data\SortValues.cs" />
-    <Compile Include="Model\SortAlgorythm\BinarySearch.cs" />
-    <Compile Include="Model\SortAlgorythm\BubbleSearch.cs" />
+    <Compile Include="Model\SortAlgorythm\BinarySort.cs" />
+    <Compile Include="Model\SortAlgorythm\BubbleSort.cs" />
     <Compile Include="Model\SortAlgorythm\ISortAlgorythm.cs" />
     <Compile Include="Model\SortAlgorythm\SortAlgorythm.cs" />
     <Compile Include="Program.cs" />
