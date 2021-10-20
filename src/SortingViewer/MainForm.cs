@@ -26,11 +26,6 @@ namespace SortingViewer
 
         private void MainForm_Load(object sender, EventArgs e) {
 
-            /*  Create SortAlgorythm and put it to Manager. Register Manager in UserInput Control 
-                to Have access to the SortAlgorythms.             */
-            _SortAlgoManager.AddAlgorythm("BinarySort", new BinarySort());
-            _SortAlgoManager.AddAlgorythm("BubbleSort", new BubbleSort());
-            this.userInputControl1.SetSortAlgorythmManager(_SortAlgoManager);
 
         }
 

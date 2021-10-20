@@ -29,6 +29,7 @@ namespace SortingViewer.View.UserInput {
             this.label1 = new System.Windows.Forms.Label();
             this.btnStopSort = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSetValues = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,7 @@ namespace SortingViewer.View.UserInput {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStartSort.Location = new System.Drawing.Point(3, 47);
             this.btnStartSort.Name = "btnStartSort";
-            this.btnStartSort.Size = new System.Drawing.Size(154, 32);
+            this.btnStartSort.Size = new System.Drawing.Size(154, 24);
             this.btnStartSort.TabIndex = 0;
             this.btnStartSort.Text = "Start Sort";
             this.btnStartSort.UseVisualStyleBackColor = true;
@@ -73,7 +74,7 @@ namespace SortingViewer.View.UserInput {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStopSort.Location = new System.Drawing.Point(163, 47);
             this.btnStopSort.Name = "btnStopSort";
-            this.btnStopSort.Size = new System.Drawing.Size(154, 32);
+            this.btnStopSort.Size = new System.Drawing.Size(154, 24);
             this.btnStopSort.TabIndex = 3;
             this.btnStopSort.Text = "Stop Sort";
             this.btnStopSort.UseVisualStyleBackColor = true;
@@ -88,15 +89,28 @@ namespace SortingViewer.View.UserInput {
             this.tableLayoutPanel1.Controls.Add(this.btnStopSort, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cmbSelectSortAlgorythm, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnStartSort, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnSetValues, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 184);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnSetValues
+            // 
+            this.btnSetValues.Location = new System.Drawing.Point(3, 77);
+            this.btnSetValues.Name = "btnSetValues";
+            this.btnSetValues.Size = new System.Drawing.Size(154, 24);
+            this.btnSetValues.TabIndex = 4;
+            this.btnSetValues.Text = "Set Values";
+            this.btnSetValues.UseVisualStyleBackColor = true;
+            this.btnSetValues.Click += new System.EventHandler(this.btnSetValues_Click);
             // 
             // UserInputControl
             // 
@@ -118,5 +132,6 @@ namespace SortingViewer.View.UserInput {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStopSort;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnSetValues;
     }
 }

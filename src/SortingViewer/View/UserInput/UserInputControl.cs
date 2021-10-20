@@ -12,15 +12,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SortingViewer.View.UserInput {
-    public partial class UserInputControl : UserControl {
+    public partial class UserInputControl : UserControl,iUserInput {
 
 
-        iSortControllerUserInterface _SortController;
 
 
         public UserInputControl() {
             InitializeComponent();
         }
+
+  
+
+        public event EventHandler StartSort;
+        public event EventHandler StopSort;
+        public event EventHandler<SetSortValuesEventArgs> SetValues;
+        public event EventHandler<SetSortAlgorythmEventArgs> SetSortAlgorythm;
 
 
 
@@ -29,38 +35,28 @@ namespace SortingViewer.View.UserInput {
             this.cmbSelectSortAlgorythm.Items.AddRange(SortAlgoNames);
             if(this.cmbSelectSortAlgorythm.Items.Count > 0) this.cmbSelectSortAlgorythm.SelectedIndex = 0;
         }
-        public void SetSortController(iSortControllerUserInterface Controller) {
-            _SortController = Controller;
-        }
         #endregion
 
 
 
         #region EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS
         private void btnStartSort_Click(object sender, EventArgs e) {
-            StartSort();
+            if(StartSort != null) StartSort(this, e);
         }
         private void btnStopSort_Click(object sender, EventArgs e) {
-            StopSort();
+            if(StopSort != null) StopSort(this, e);
+        }
+        private void btnSetValues_Click(object sender, EventArgs e) {
+            SetSortValuesEventArgs ea = new SetSortValuesEventArgs() { SortValues = new SortValues(new int[] { 1, 2, 3, 4 }) };
+            if(SetValues != null) SetValues(this,ea);
         }
         private void cmbSelectSortAlgorythm_SelectedIndexChanged(object sender, EventArgs e) {
             ComboBox cb = (ComboBox)sender;
-            _SortController.SelectSortAlgorythm(cb.Text);
-
+            SetSortAlgorythmEventArgs ea = new SetSortAlgorythmEventArgs() { SortAlgorythmName = cb.Text };
+            if(SetSortAlgorythm != null) SetSortAlgorythm(this, ea);
         }
         #endregion EVENTS
 
 
-
-        #region PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES
-        private void StartSort() {
-            _SortController.StartSort();
-        }
-        private void StopSort() {
-            _SortController.StopSort();
-        }
-        #endregion PRIVATES
-
-      
     }
 }
