@@ -12,11 +12,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SortingViewer.View.UserInput {
-    public partial class UserInputControl : UserControl,IUserInput {
+    public partial class UserInputControl : UserControl {
 
 
-        IUserInput _uiController;
-        ISortAlgorythmManager _SortAlgoManager;
+        iSortControllerUserInterface _SortController;
 
 
         public UserInputControl() {
@@ -24,51 +23,44 @@ namespace SortingViewer.View.UserInput {
         }
 
 
-        public void SetUserInputController(IUserInput Controller) {
-            _uiController = Controller;
-        }
-        public void SetSortAlgorythmManager(ISortAlgorythmManager Manager) {
-            _SortAlgoManager = Manager;
-            LoadSortAlgorythmnamesToCombobox(_SortAlgoManager);
-        }
-        
-        #region IUSerInput Interface
-        public void SetSortAlgorythm(ISortAlgorythm SortAlgorythm) {
-            _uiController.SetSortAlgorythm(SortAlgorythm);
-        }
 
-        public void SetSortValues(ISortValues Values) {
-            _uiController.SetSortValues(Values);
+        #region PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS -- PUBLICS
+        public void LoadSortAlgorythmNames(string[] SortAlgoNames) {
+            this.cmbSelectSortAlgorythm.Items.AddRange(SortAlgoNames);
+            if(this.cmbSelectSortAlgorythm.Items.Count > 0) this.cmbSelectSortAlgorythm.SelectedIndex = 0;
         }
-
-        public void StartSort() {
-            _uiController.SetSortAlgorythm(_SortAlgoManager.GetAlgorythm(cmbSelectSortAlgorythm.Text));
-            _uiController.StartSort();
+        public void SetSortController(iSortControllerUserInterface Controller) {
+            _SortController = Controller;
         }
-
-        public void StopSort() {
-            _uiController.StopSort();
-        }
-
         #endregion
 
 
 
-        #region EVENTS
+        #region EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS -- EVENTS
         private void btnStartSort_Click(object sender, EventArgs e) {
             StartSort();
         }
         private void btnStopSort_Click(object sender, EventArgs e) {
             StopSort();
         }
-        #endregion
+        private void cmbSelectSortAlgorythm_SelectedIndexChanged(object sender, EventArgs e) {
+            ComboBox cb = (ComboBox)sender;
+            _SortController.SelectSortAlgorythm(cb.Text);
 
-
-        private void LoadSortAlgorythmnamesToCombobox(ISortAlgorythmManager Manager) {
-            this.cmbSelectSortAlgorythm.Items.AddRange(_SortAlgoManager.GetSortAlgorythmsNames().ToArray());
-            if(_SortAlgoManager.GetSortAlgorythmsNames().Count > 0) this.cmbSelectSortAlgorythm.SelectedIndex = 0;
         }
+        #endregion EVENTS
 
-       
+
+
+        #region PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES -- PRIVATES
+        private void StartSort() {
+            _SortController.StartSort();
+        }
+        private void StopSort() {
+            _SortController.StopSort();
+        }
+        #endregion PRIVATES
+
+      
     }
 }

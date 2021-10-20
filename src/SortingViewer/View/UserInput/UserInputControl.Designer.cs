@@ -55,6 +55,7 @@ namespace SortingViewer.View.UserInput {
             this.cmbSelectSortAlgorythm.Name = "cmbSelectSortAlgorythm";
             this.cmbSelectSortAlgorythm.Size = new System.Drawing.Size(314, 21);
             this.cmbSelectSortAlgorythm.TabIndex = 1;
+            this.cmbSelectSortAlgorythm.SelectedIndexChanged += new System.EventHandler(this.cmbSelectSortAlgorythm_SelectedIndexChanged);
             // 
             // label1
             // 

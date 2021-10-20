@@ -13,14 +13,28 @@ namespace SortingViewer.Controller {
         public SortAlgorythmManager() {
         }
 
+        /// <summary>
+        /// Returns the Algorythm with the given Name
+        /// </summary>
+        /// <param name="SortAlgorythmName">Name of the Algorythm to be returned</param>
+        /// <returns></returns>
         public ISortAlgorythm GetAlgorythm(string SortAlgorythmName) {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Returns a List of String with all Names of Algorythms.
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetSortAlgorythmsNames() {
             return _SortAlgos.Keys.ToList<string>();
         }
 
+        /// <summary>
+        /// Adds a Alorythm to the Managers Dictionary
+        /// </summary>
+        /// <param name="UniqueName">A Unique Name representing the SortAlgorythm</param>
+        /// <param name="SortAlgorythm">SortAlgorythm to be stored</param>
+        /// <exception cref="ArgumentException" >If UniqueName is NULL or Empty</exception>
         public void AddAlgorythm(string UniqueName, ISortAlgorythm SortAlgorythm) {
             if(UniqueName == "") throw new ArgumentException("Empty Name is not allowed");
             _SortAlgos.Add(UniqueName, SortAlgorythm);
