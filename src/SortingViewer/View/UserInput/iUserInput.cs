@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// https://social.msdn.microsoft.com/Forums/de-DE/d1e6beac-7cc2-4c21-85bc-1ed5d6b4b913/how-do-i-specify-custom-eventargs-in-a-interface?forum=csharplanguage
 /// </summary>
 namespace SortingViewer.View.UserInput {
-    public interface iUserInput {
+    public interface IUserInput {
 
         event EventHandler StartSort;
         event EventHandler StopSort;

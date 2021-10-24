@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace SortingViewer.Controller
 {
     public class SortController{
-        public SortController(iUserInput UI, IValueView ValueView, IStatisticsView StatisticView) {
+        public SortController(IUserInput UI, IValueView ValueView, IStatisticsView StatisticView) {
             if(UI == null || ValueView == null || StatisticView == null) throw new ArgumentNullException();
         }
 

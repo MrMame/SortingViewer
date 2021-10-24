@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SortingViewer.View.UserInput {
-    public partial class UserInputControl : UserControl,iUserInput {
+    public partial class UserInputControl : UserControl,IUserInput {
 
 
 
