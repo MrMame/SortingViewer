@@ -1,5 +1,8 @@
 ﻿using SortingViewer.Model.Data;
 using SortingViewer.Model.SortAlgorythm;
+using SortingViewer.View.Statistic;
+using SortingViewer.View.UserInput;
+using SortingViewer.View.Value;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +11,10 @@ using System.Threading.Tasks;
 
 namespace SortingViewer.Controller
 {
-    class SortController{
-
+    public class SortController{
+        public SortController(iUserInput UI, IValueView ValueView, IStatisticsView StatisticView) {
+            if(UI == null || ValueView == null || StatisticView == null) throw new ArgumentNullException();
+        }
 
     }
 }

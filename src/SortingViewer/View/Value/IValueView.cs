@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SortingViewer.View.Value
 {
-    interface IValueView
+    public interface IValueView
     {
         void ShowValues(ISortValues Values);
         void ResetView();
