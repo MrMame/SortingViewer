@@ -64,7 +64,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Statistic\IStatisticsView.cs" />
-    <Compile Include="View\UserInput\iUserInput.cs" />
+    <Compile Include="View\UserInput\IUserInput.cs" />
     <Compile Include="View\UserInput\SetSortAlgorythmEventArgs.cs" />
     <Compile Include="View\UserInput\SetSortValuesEventArgs.cs" />
     <Compile Include="View\UserInput\UserInputControl.cs">
