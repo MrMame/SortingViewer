@@ -76,7 +76,12 @@ namespace SortingViewer.Controller
 
             BackgroundWorker worker = sender as BackgroundWorker;
             SortWorkerArguments workerArgs = (SortWorkerArguments)e.Argument;
-
+            /*
+                An dieser Stelle muss der SortAlgorythmus schrittweise seine arbeit durchführen
+             
+             */
+            
+            workerArgs.SortAlgoryth.
             
 
             for(int i = 1; i <= 10; i++) {
