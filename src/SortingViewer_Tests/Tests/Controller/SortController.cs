@@ -28,7 +28,15 @@ namespace SortingViewer_Tests.Tests.Controller {
             Assert.Throws<ArgumentNullException>(() => new TestingController(null,null,null));
         }
         [Test]
-        public void StartSort_sets_SortFinish_Flag_when_finished() {
+        public void StartSort_sets_SortRunning() {
+
+            /*
+                Testing Events
+                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order
+                https://stackoverflow.com/questions/1770830/c-how-to-test-a-basic-threaded-worker-class
+             */
+
+
             //arrange
             StatisticsViewMock statVw = new StatisticsViewMock();
             UserInputMock ui = new UserInputMock();
