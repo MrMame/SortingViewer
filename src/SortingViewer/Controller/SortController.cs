@@ -81,7 +81,7 @@ namespace SortingViewer.Controller
              
              */
             
-            workerArgs.SortAlgoryth.
+            
             
 
             for(int i = 1; i <= 10; i++) {
