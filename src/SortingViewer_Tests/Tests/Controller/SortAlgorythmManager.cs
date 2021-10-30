@@ -7,6 +7,7 @@ using SortingViewer.Controller;
 
 using NUnit.Framework;
 using SortingViewer.Model.SortAlgorythm;
+using SortingViewer.Model.Data;
 
 namespace SortingViewer_Tests.Tests.Controller {
     class SortAlgorythmManager {
@@ -66,6 +67,21 @@ namespace SortingViewer_Tests.Tests.Controller {
 
         private class SortAlgorythmMock:ISortAlgorythm {
             public SortAlgorythmMock() {
+            }
+
+            public event EventHandler<ValueChangedEventArgs> ValueChanged;
+            public event EventHandler<SortFinishEventArgs> SortFinish;
+
+            public void DoSort() {
+                throw new NotImplementedException();
+            }
+
+            public void DoSortStep() {
+                throw new NotImplementedException();
+            }
+
+            public void SetValues(ISortValues Values) {
+                throw new NotImplementedException();
             }
         }
 

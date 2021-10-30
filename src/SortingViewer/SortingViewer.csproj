@@ -60,7 +60,8 @@
     <Compile Include="Model\SortAlgorythm\BinarySort.cs" />
     <Compile Include="Model\SortAlgorythm\BubbleSort.cs" />
     <Compile Include="Model\SortAlgorythm\ISortAlgorythm.cs" />
-    <Compile Include="Model\SortAlgorythm\SortAlgorythm.cs" />
+    <Compile Include="Model\SortAlgorythm\SortFinishEventArgs.cs" />
+    <Compile Include="Model\SortAlgorythm\ValueChangedEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Statistic\IStatisticsView.cs" />
