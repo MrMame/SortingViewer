@@ -28,31 +28,31 @@ namespace SortingViewer_Tests.Tests.Controller {
         public void Constructor_with_null_parameter_throws_ArgumentException() {
             Assert.Throws<ArgumentNullException>(() => new TestingController(null,null,null,null));
         }
-        [Test]
-        public void StartSort_sets_SortRunning() {
+        //[Test]
+        //public void StartSort_sets_SortRunning() {
 
-            /*
-                Testing Events
-                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order
-                https://stackoverflow.com/questions/1770830/c-how-to-test-a-basic-threaded-worker-class
-             */
+        //    /*
+        //        Testing Events
+        //        https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order
+        //        https://stackoverflow.com/questions/1770830/c-how-to-test-a-basic-threaded-worker-class
+        //     */
 
 
-            //arrange
-            StatisticsViewMock statVw = new StatisticsViewMock();
-            UserInputMock ui = new UserInputMock();
-            ValueViewMock SortVw = new ValueViewMock();
-            SortAlgoMock SortAlgo = new SortAlgoMock();
-            SortAlgoManagerMock AlgoMock = new SortAlgoManagerMock();
-            AlgoMock.AddAlgorythm("SortAlgoMock", SortAlgo);
-            // act
-            TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
-            ui.FireEvent_StartSort(null);
+        //    //arrange
+        //    StatisticsViewMock statVw = new StatisticsViewMock();
+        //    UserInputMock ui = new UserInputMock();
+        //    ValueViewMock SortVw = new ValueViewMock();
+        //    SortAlgoMock SortAlgo = new SortAlgoMock();
+        //    SortAlgoManagerMock AlgoMock = new SortAlgoManagerMock();
+        //    AlgoMock.AddAlgorythm("SortAlgoMock", SortAlgo);
+        //    // act
+        //    TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
+        //    ui.FireEvent_StartSort(null);
 
-            // assert
-            Assert.AreEqual( SortingViewer.Controller.SortController.SortWorkerStates.Sort_Running, sc.SortProcessState);
+        //    // assert
+        //    Assert.AreEqual( SortingViewer.Controller.SortController.SortWorkerStates.Sort_Running, sc.SortProcessState);
 
-        }
+        //}
 
 
 

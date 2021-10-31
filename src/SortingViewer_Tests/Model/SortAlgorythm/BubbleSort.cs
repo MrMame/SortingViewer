@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using NUnit.Framework;
+using TestAlgos = SortingViewer.Model.SortAlgorythm ;
 
 namespace SortingViewer_Tests.Model.SortAlgorythm {
     class BubbleSort {
@@ -16,9 +17,106 @@ namespace SortingViewer_Tests.Model.SortAlgorythm {
 
         [Test]
         public void Empty_Constructor_is_not_null (){
-            BubbleSort bsort = new BubbleSort();
+            SortAlgorythm.BubbleSort bsort = new BubbleSort();
             Assert.IsNotNull(bsort);
         }
+
+        [Test]
+        public void DoSort_Without_SetValues_Fires_FinishEvent_With_0_Steps() {
+            /* Event Checks from this example
+                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order*/
+            int nSteps = -1;
+            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+
+            sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
+                nSteps = e.TotalSteps;
+            };
+
+            sort.DoSort();
+
+            Assert.AreEqual(0, nSteps);
+        }
+
+        [Test]
+        public void DoSortStep_Without_SetValues_Fires_Finish_Event() {
+            Assert.IsTrue(false);
+        }
+
+        [Test]
+        [TestCase(new int[] { },
+                  new int[] { })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        public void DoSort_is_Sorting_Values(int[] testVals, int[] expectedVals) {
+            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+
+            sort.SetValues(values);
+            sort.DoSort();
+
+            Assert.AreEqual(expectedVals, testVals);
+        }
+
+
+        [Test]
+        [TestCase(new int[] { },
+                  new int[] { })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        public void DoSort_Fires_SortFinish_Event(int[] testVals, int[] expectedVals) {
+            /* Event Checks from this example
+               https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
+            */
+            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+            // Register Finish EventHandler
+            bool FinishEventFired = false;
+            sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
+                FinishEventFired = true;
+            };
+            // Do
+            sort.DoSort();
+            // Asserts
+            Assert.IsTrue(FinishEventFired);
+        }
+
+        [Test]
+        [TestCase(new int[] { },
+                  new int[] { })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
+                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
+        public void DoSortStep_is_Sorting_Values(int[] testVals, int[] expectedVals) {
+            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+            // Register Finish EventHandler
+            bool FinishEventFired = false;
+            sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
+                FinishEventFired = true;
+            };
+            // Do
+            while(FinishEventFired == false) {
+                sort.DoSortStep();
+            }
+            // Asserts
+            Assert.AreEqual(expectedVals, testVals);
+        }
+
+        [Test]
+        public void DoSortStep_Fires_SortFinish_Event() {
+            Assert.IsTrue(false);
+        }
+
+        [Test]
+        public void DoSortStep_Fires_ValueChanged_Event() {
+            Assert.IsTrue(false);
+        }
+
 
     }
 }
