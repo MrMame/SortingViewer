@@ -21,6 +21,7 @@ namespace SortingViewer.Model.SortAlgorythm
                         int tmp = _SortValues.Values[i + 1];
                         _SortValues.Values[i + 1] = _SortValues.Values[i];
                         _SortValues.Values[i] = tmp;
+                        if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps });
                     } // Ende if
                     nSteps++;
                 } // Ende innere for-Schleife
