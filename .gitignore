@@ -386,3 +386,7 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+#debug and release binaries
+src/SortingViewer_Tests/bin/*
+src/SortingViewer/bin/*
