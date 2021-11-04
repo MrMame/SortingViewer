@@ -386,7 +386,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
-src/SortingViewer_Tests/bin/Debug/net472/nunit_random_seed.tmp
-src/SortingViewer_Tests/obj/Debug/net472/SortingViewer_Tests.csprojAssemblyReference.cache
 src/SortingViewer_Tests/bin/
 src/SortingViewer/bin/
