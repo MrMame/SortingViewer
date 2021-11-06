@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using System.Diagnostics;
->>>>>>> Implementing_ISortAlgorythm
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using NUnit.Framework;
-<<<<<<< HEAD
-=======
+
 using TestAlgos = SortingViewer.Model.SortAlgorythm ;
->>>>>>> Implementing_ISortAlgorythm
+
 
 namespace SortingViewer_Tests.Model.SortAlgorythm {
     class BubbleSort {
@@ -24,13 +20,8 @@ namespace SortingViewer_Tests.Model.SortAlgorythm {
 
         [Test]
         public void Empty_Constructor_is_not_null (){
-<<<<<<< HEAD
-            BubbleSort bsort = new BubbleSort();
-            Assert.IsNotNull(bsort);
-        }
 
-=======
-            SortAlgorythm.BubbleSort bsort = new BubbleSort();
+            TestAlgos.BubbleSort bsort = new TestAlgos.BubbleSort();
             Assert.IsNotNull(bsort);
         }
 
@@ -171,7 +162,5 @@ namespace SortingViewer_Tests.Model.SortAlgorythm {
             Assert.IsTrue(false);
         }
 
-
->>>>>>> Implementing_ISortAlgorythm
     }
 }

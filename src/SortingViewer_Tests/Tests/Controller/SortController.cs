@@ -38,21 +38,7 @@ namespace SortingViewer_Tests.Tests.Controller {
         //     */
 
 
-<<<<<<< HEAD
-            //arrange
-            StatisticsViewMock statVw = new StatisticsViewMock();
-            UserInputMock ui = new UserInputMock();
-            ValueViewMock SortVw = new ValueViewMock();
-            SortAlgoMock SortAlgo = new SortAlgoMock();
-            SortAlgoManagerMock AlgoMock = new SortAlgoManagerMock();
-            AlgoMock.AddAlgorythm("SortAlgoMock", SortAlgo);
-            // act
-            TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
-            ui.FireEvent_StartSort(null);
 
-            // assert
-            Assert.AreEqual( SortingViewer.Controller.SortController.SortWorkerStates.Sort_Running, sc.SortProcessState);
-=======
         //    //arrange
         //    StatisticsViewMock statVw = new StatisticsViewMock();
         //    UserInputMock ui = new UserInputMock();
@@ -63,10 +49,8 @@ namespace SortingViewer_Tests.Tests.Controller {
         //    // act
         //    TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
         //    ui.FireEvent_StartSort(null);
-
         //    // assert
         //    Assert.AreEqual( SortingViewer.Controller.SortController.SortWorkerStates.Sort_Running, sc.SortProcessState);
->>>>>>> Implementing_ISortAlgorythm
 
         //}
 
@@ -92,21 +76,12 @@ namespace SortingViewer_Tests.Tests.Controller {
 
         public void LoadSortAlgorythmNames(string[] SortAlgoNames) {
             // No need to implement for mock object
-<<<<<<< HEAD
         }
 
         public void FireEvent_StartSort(EventArgs e) {
             if(StartSort != null) StartSort(this, e);
         }
 
-=======
-        }
-
-        public void FireEvent_StartSort(EventArgs e) {
-            if(StartSort != null) StartSort(this, e);
-        }
-
->>>>>>> Implementing_ISortAlgorythm
     }
 
     class ValueViewMock : IValueView {

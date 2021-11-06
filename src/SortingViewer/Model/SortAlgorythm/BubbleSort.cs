@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 
 namespace SortingViewer.Model.SortAlgorythm
 {
-<<<<<<< HEAD
-    class BubbleSort : ISortAlgorythm {
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
-        public event EventHandler<SortFinishEventArgs> SortFinish;
 
-        public void DoSort() {
-            throw new NotImplementedException();
-=======
     public class BubbleSort : ISortAlgorythm {
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
@@ -36,7 +29,6 @@ namespace SortingViewer.Model.SortAlgorythm
             } // Ende äußere for-Schleife
             // Fire Finish Event
             if(SortFinish != null) SortFinish(this, new SortFinishEventArgs() { TotalSteps = nSteps});
->>>>>>> Implementing_ISortAlgorythm
         }
 
         public void DoSortStep() {
@@ -44,10 +36,6 @@ namespace SortingViewer.Model.SortAlgorythm
         }
 
         public void SetValues(ISortValues Values) {
-<<<<<<< HEAD
-            throw new NotImplementedException();
-        }
-=======
             _SortValues = Values;
         }
 
@@ -56,7 +44,5 @@ namespace SortingViewer.Model.SortAlgorythm
             
         #endregion
 
-
->>>>>>> Implementing_ISortAlgorythm
     }
 }
