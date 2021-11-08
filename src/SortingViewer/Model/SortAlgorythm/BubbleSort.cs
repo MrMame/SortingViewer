@@ -14,6 +14,7 @@ namespace SortingViewer.Model.SortAlgorythm
 
         ISortValues _SortValues = new SortValues();
 
+
         public void DoSort() {
             int nSteps = 0;
             for(int n = _SortValues.Values.Length; n > 1; --n) {
