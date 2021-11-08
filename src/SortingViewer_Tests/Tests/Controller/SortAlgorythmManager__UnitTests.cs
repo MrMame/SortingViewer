@@ -8,6 +8,7 @@ using SortingViewer.Controller;
 using NUnit.Framework;
 using SortingViewer.Model.SortAlgorythm;
 using SortingViewer.Model.Data;
+using SortingViewer_Tests.TestingMocks;
 
 namespace SortingViewer_Tests.Tests.Controller {
     class SortAlgorythmManager__UnitTests {
@@ -32,7 +33,7 @@ namespace SortingViewer_Tests.Tests.Controller {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             for(int i = 0; i <= AlgoNames.Length - 1; i++) {
-                val.AddAlgorythm((string)AlgoNames[i], new SortAlgorythmMock());
+                val.AddAlgorythm((string)AlgoNames[i], new SortAlgorythmEmptyMock());
             }
             // Process
             List<string> RetAlgoNames = val.GetSortAlgorythmsNames();
@@ -44,46 +45,28 @@ namespace SortingViewer_Tests.Tests.Controller {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             // Check if exception gets thrown
-            Assert.Throws<ArgumentException>(() => val.AddAlgorythm("", new SortAlgorythmMock()));
+            Assert.Throws<ArgumentException>(() => val.AddAlgorythm("", new SortAlgorythmEmptyMock()));
         }
         [Test]
         public void AddAlgorythm_TrowsException_if_Double_SortAlgoName() {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             string SortAlgoName = "Algo1";
-            val.AddAlgorythm(SortAlgoName, new SortAlgorythmMock());
+            val.AddAlgorythm(SortAlgoName, new SortAlgorythmEmptyMock());
             // Check if exception gets thrown
-            Assert.Throws<ArgumentException>(() => val.AddAlgorythm(SortAlgoName, new SortAlgorythmMock()));
+            Assert.Throws<ArgumentException>(() => val.AddAlgorythm(SortAlgoName, new SortAlgorythmEmptyMock()));
         }
         [Test]
         public void AddAlgorythm_TrowsException_if_NULL_SortAlgoName() {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             // Check if exception gets thrown
-            Assert.Throws<ArgumentNullException>(() => val.AddAlgorythm(null, new SortAlgorythmMock()));
+            Assert.Throws<ArgumentNullException>(() => val.AddAlgorythm(null, new SortAlgorythmEmptyMock()));
         }
 
 
 
-        private class SortAlgorythmMock:ISortAlgorythm {
-            public SortAlgorythmMock() {
-            }
-
-            public event EventHandler<ValueChangedEventArgs> ValueChanged;
-            public event EventHandler<SortFinishEventArgs> SortFinish;
-
-            public void DoSort() {
-                throw new NotImplementedException();
-            }
-
-            public void DoSortStep() {
-                throw new NotImplementedException();
-            }
-
-            public void SetValues(ISortValues Values) {
-                throw new NotImplementedException();
-            }
-        }
+       
 
 
 
