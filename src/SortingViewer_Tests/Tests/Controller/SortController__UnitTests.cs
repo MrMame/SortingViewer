@@ -67,11 +67,9 @@ namespace SortingViewer_Tests.Tests.Controller {
     #region MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS
 
 
-    class StatisticsViewMock : IStatisticsView {
+ 
 
-    }
-
-    class UserInputMock : IUserInput {
+    class UserInputProgramaticalyMock : IUserInput {
         public event EventHandler StartSort;
         public event EventHandler StopSort;
         public event EventHandler<SetSortValuesEventArgs> SetValues;
@@ -87,15 +85,7 @@ namespace SortingViewer_Tests.Tests.Controller {
 
     }
 
-    class ValueViewMock : IValueView {
-        public void ResetView() {
-            throw new NotImplementedException();
-        }
-
-        public void ShowValues(ISortValues Values) {
-            throw new NotImplementedException();
-        }
-    }
+   
 
     class SortAlgoManagerMock : ISortAlgorythmManager {
         List<String> AlgoNames = new List<string>();
@@ -111,23 +101,6 @@ namespace SortingViewer_Tests.Tests.Controller {
 
         public List<string> GetSortAlgorythmsNames() {
             return AlgoNames;
-        }
-    }
-
-    class SortAlgoMock : ISortAlgorythm {
-        public event EventHandler<ValueChangedEventArgs> ValueChanged;
-        public event EventHandler<SortFinishEventArgs> SortFinish;
-
-        public void DoSort() {
-            throw new NotImplementedException();
-        }
-
-        public void DoSortStep() {
-            throw new NotImplementedException();
-        }
-
-        public void SetValues(ISortValues Values) {
-            throw new NotImplementedException();
         }
     }
 

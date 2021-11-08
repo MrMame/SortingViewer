@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer_Tests.TestingMocks {
-    class OnlyValueSortValueMock : ISortValues {
+    class SortValueWithoutNormalizationMock : ISortValues {
 
         int[] _values;
 
 
         public int[] Values { get => _values; set => _values = value; }
 
-        public OnlyValueSortValueMock(int[] Values) {
+        public SortValueWithoutNormalizationMock(int[] Values) {
             _values = Values;
         }
 

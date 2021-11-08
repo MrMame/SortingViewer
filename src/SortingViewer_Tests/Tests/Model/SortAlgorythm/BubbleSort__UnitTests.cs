@@ -48,7 +48,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         [Ignore("not implemented, DoSort is not Working")]
         public void DoSortStep___Fires_SortFinish_Event_After_SortingValues_Finished() {
             bool eventFired = false;
-            OnlyValueSortValueMock SortValues = new OnlyValueSortValueMock(new int[] { 1,9,5,8,7,3,4,6,2,0});
+            SortValueWithoutNormalizationMock SortValues = new SortValueWithoutNormalizationMock(new int[] { 1,9,5,8,7,3,4,6,2,0});
             TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
             sort.SetValues( SortValues);
 
@@ -82,7 +82,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         [Test]
         [Ignore("not implemented, DoSort is not Working")]
         public void DoSortStep__SortValueArray_Values_Steps_Matching() {
-            OnlyValueSortValueMock SortValues = new OnlyValueSortValueMock(new int[] { 2,4,1,3});
+            SortValueWithoutNormalizationMock SortValues = new SortValueWithoutNormalizationMock(new int[] { 2,4,1,3});
             List<int[]> SteppedArrays = new List<int[]>();
             SteppedArrays.Add(new int[] {2,1,4,3});
             SteppedArrays.Add(new int[] {2,1,3,4});
