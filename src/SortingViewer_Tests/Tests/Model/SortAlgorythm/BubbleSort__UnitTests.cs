@@ -10,7 +10,7 @@ using NUnit.Framework;
 using TestAlgos = SortingViewer.Model.SortAlgorythm ;
 
 
-namespace SortingViewer_Tests.Model.SortAlgorythm {
+namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
     class BubbleSort__UnitTests {
 
         [SetUp]
