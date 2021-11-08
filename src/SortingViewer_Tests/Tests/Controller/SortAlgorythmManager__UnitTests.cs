@@ -10,7 +10,7 @@ using SortingViewer.Model.SortAlgorythm;
 using SortingViewer.Model.Data;
 
 namespace SortingViewer_Tests.Tests.Controller {
-    class SortAlgorythmManager {
+    class SortAlgorythmManager__UnitTests {
         [SetUp]
         public void Setup() {
         }
@@ -18,7 +18,7 @@ namespace SortingViewer_Tests.Tests.Controller {
 
         [Test]
         public void Empty_Constructor_Is_Not_Null() {
-            var val = new SortAlgorythmManager();
+            var val = new SortAlgorythmManager__UnitTests();
             Assert.IsNotNull(val);
         }
         [Test]

@@ -388,3 +388,5 @@ FodyWeavers.xsd
 *.sln.iml
 src/SortingViewer_Tests/bin/*
 src/SortingViewer/bin/*
+src/SortingViewer_Tests/obj/*
+src/SortingViewer/obj/*

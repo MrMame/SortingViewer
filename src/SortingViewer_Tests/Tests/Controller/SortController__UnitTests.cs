@@ -15,7 +15,7 @@ using TestingController = SortingViewer.Controller.SortController;
 using SortingViewer.Model.SortAlgorythm;
 
 namespace SortingViewer_Tests.Tests.Controller {
-    class SortController {
+    class SortController__UnitTests {
         [SetUp]
         public void Setup() {
 
@@ -24,10 +24,13 @@ namespace SortingViewer_Tests.Tests.Controller {
         }
 
 
-        [Test]
-        public void Constructor_with_null_parameter_throws_ArgumentException() {
-            Assert.Throws<ArgumentNullException>(() => new TestingController(null,null,null,null));
-        }
+        # region Constructor 
+        
+            [Test]
+            public void Constructor_with_null_parameter_throws_ArgumentException() {
+                Assert.Throws<ArgumentNullException>(() => new TestingController(null, null, null, null));
+            }
+        #endregion
         //[Test]
         //public void StartSort_sets_SortRunning() {
 
