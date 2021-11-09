@@ -19,7 +19,7 @@ namespace SortingViewer.Controller {
         /// <param name="SortAlgorythmName">Name of the Algorythm to be returned</param>
         /// <returns></returns>
         public ISortAlgorythm GetAlgorythm(string SortAlgorythmName) {
-            throw new NotImplementedException();
+            return _SortAlgos[SortAlgorythmName];
         }
         /// <summary>
         /// Returns a List of String with all Names of Algorythms.
