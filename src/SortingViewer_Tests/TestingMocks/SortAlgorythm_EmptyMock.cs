@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer_Tests.TestingMocks {
-    public class SortAlgorythmEmptyMock : ISortAlgorythm {
-        public SortAlgorythmEmptyMock() {
+    public class SortAlgorythm_EmptyMock : ISortAlgorythm {
+        public SortAlgorythm_EmptyMock() {
         }
 
         public event EventHandler<ValueChangedEventArgs> ValueChanged;

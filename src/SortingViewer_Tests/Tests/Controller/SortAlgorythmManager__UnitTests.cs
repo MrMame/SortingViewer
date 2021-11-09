@@ -39,7 +39,7 @@ namespace SortingViewer_Tests.Tests.Controller {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             for(int i = 0; i <= AlgoNames.Length - 1; i++) {
-                val.AddAlgorythm((string)AlgoNames[i], new SortAlgorythmEmptyMock());
+                val.AddAlgorythm((string)AlgoNames[i], new SortAlgorythm_EmptyMock());
             }
             // Process
             List<string> RetAlgoNames = val.GetSortAlgorythmsNames();
@@ -57,23 +57,23 @@ namespace SortingViewer_Tests.Tests.Controller {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             // Check if exception gets thrown
-            Assert.Throws<ArgumentException>(() => val.AddAlgorythm("", new SortAlgorythmEmptyMock()));
+            Assert.Throws<ArgumentException>(() => val.AddAlgorythm("", new SortAlgorythm_EmptyMock()));
         }
         [Test]
         public void AddAlgorythm_TrowsException_if_Double_SortAlgoName() {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             string SortAlgoName = "Algo1";
-            val.AddAlgorythm(SortAlgoName, new SortAlgorythmEmptyMock());
+            val.AddAlgorythm(SortAlgoName, new SortAlgorythm_EmptyMock());
             // Check if exception gets thrown
-            Assert.Throws<ArgumentException>(() => val.AddAlgorythm(SortAlgoName, new SortAlgorythmEmptyMock()));
+            Assert.Throws<ArgumentException>(() => val.AddAlgorythm(SortAlgoName, new SortAlgorythm_EmptyMock()));
         }
         [Test]
         public void AddAlgorythm_TrowsException_if_NULL_SortAlgoName() {
             //Setup
             SortingViewer.Controller.SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             // Check if exception gets thrown
-            Assert.Throws<ArgumentNullException>(() => val.AddAlgorythm(null, new SortAlgorythmEmptyMock()));
+            Assert.Throws<ArgumentNullException>(() => val.AddAlgorythm(null, new SortAlgorythm_EmptyMock()));
         }
         #endregion AddAlgorythm()
 
@@ -84,7 +84,7 @@ namespace SortingViewer_Tests.Tests.Controller {
         public void GetAlgorythm_Returns_IAlgorythm() {
             // Setup
             string SortAlgoName = "MyUniqueAlgo";
-            ISortAlgorythm theSortAlgoMock = new SortAlgorythmEmptyMock();
+            ISortAlgorythm theSortAlgoMock = new SortAlgorythm_EmptyMock();
             SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             val.AddAlgorythm(SortAlgoName, theSortAlgoMock);
             // Check
@@ -94,7 +94,7 @@ namespace SortingViewer_Tests.Tests.Controller {
         public void GetAlgorythm_ThrowsArgumentNullException_IfNameIsNull() {
             // Setup
             string SortAlgoName = "MyUniqueAlgo";
-            ISortAlgorythm theSortAlgoMock = new SortAlgorythmEmptyMock();
+            ISortAlgorythm theSortAlgoMock = new SortAlgorythm_EmptyMock();
             SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             val.AddAlgorythm(SortAlgoName, theSortAlgoMock);
             // Check
@@ -105,7 +105,7 @@ namespace SortingViewer_Tests.Tests.Controller {
             // Setup
             string SortAlgoName = "MyUniqueAlgo";
             string WrongAlgoName = "NotExistingName";
-            ISortAlgorythm theSortAlgoMock = new SortAlgorythmEmptyMock();
+            ISortAlgorythm theSortAlgoMock = new SortAlgorythm_EmptyMock();
             SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             val.AddAlgorythm(SortAlgoName, theSortAlgoMock);
             // Check
@@ -115,7 +115,7 @@ namespace SortingViewer_Tests.Tests.Controller {
         public void GetAlgorythm_ThrowsKeyNotFoundException_IfNameIsEmptyString() {
             // Setup
             string SortAlgoName = "MyUniqueAlgo";
-            ISortAlgorythm theSortAlgoMock = new SortAlgorythmEmptyMock();
+            ISortAlgorythm theSortAlgoMock = new SortAlgorythm_EmptyMock();
             SortAlgorythmManager val = new SortingViewer.Controller.SortAlgorythmManager();
             val.AddAlgorythm(SortAlgoName, theSortAlgoMock);
             // Check

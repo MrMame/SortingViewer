@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer_Tests.TestingMocks {
-    class StatisticsViewDebugPrintMock : IStatisticsView {
+    class StatisticsView_DebugPrintMock : IStatisticsView {
         public void ResetView() {
             TestContext.WriteLine("IStatisticsView.ResetView() has Reset the Statistics.");
         }

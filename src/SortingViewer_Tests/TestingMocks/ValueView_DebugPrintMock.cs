@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer_Tests.TestingMocks {
-    class ValueViewDebugPrintMock : IValueView {
+    class ValueView_DebugPrintMock : IValueView {
         public void ResetView() {
             throw new NotImplementedException();
         }

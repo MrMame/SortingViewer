@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SortingViewer_Tests.TestingMocks {
-    class UserInputStandardMock : IUserInput {
+    class UserInput_Mock : IUserInput {
         public event EventHandler StartSort;
         public event EventHandler StopSort;
         public event EventHandler<SetSortValuesEventArgs> SetValues;
