@@ -97,31 +97,5 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             Assert.AreEqual(testVals, expectedVals);
         }
 
-
-        [Test]
-        [Ignore("Not implemented")]
-        [TestCase(new int[] { },
-                  new int[] { })]
-        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
-                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
-        [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
-                  new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
-        public void DoSortStep___is_Sorting_Values(int[] testVals, int[] expectedVals) {
-            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
-            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
-            // Register Finish EventHandler
-            bool FinishEventFired = false;
-            sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
-                FinishEventFired = true;
-            };
-            // Do
-            while(FinishEventFired == false) {
-                sort.DoSortStep();
-            }
-            // Asserts
-            Assert.AreEqual(expectedVals, testVals);
-        }
-
-
     }
 }

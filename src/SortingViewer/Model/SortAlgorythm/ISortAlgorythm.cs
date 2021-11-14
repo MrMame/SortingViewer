@@ -14,7 +14,6 @@ namespace SortingViewer.Model.SortAlgorythm
         event EventHandler <SortFinishEventArgs> SortFinish;
 
         void SetValues(ISortValues Values);
-        void DoSortStep();
         void DoSort();
 
     }
