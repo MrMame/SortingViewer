@@ -64,48 +64,4 @@ namespace SortingViewer_Tests.Tests.Controller {
 
 
 
-    #region MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS MOCKS
-
-
- 
-
-    class UserInputProgramaticalyMock : IUserInput {
-        public event EventHandler StartSort;
-        public event EventHandler StopSort;
-        public event EventHandler<SetSortValuesEventArgs> SetValues;
-        public event EventHandler<SetSortAlgorythmEventArgs> SetSortAlgorythm;
-
-        public void LoadSortAlgorythmNames(string[] SortAlgoNames) {
-            // No need to implement for mock object
-        }
-
-        public void FireEvent_StartSort(EventArgs e) {
-            if(StartSort != null) StartSort(this, e);
-        }
-
-    }
-
-   
-
-    class SortAlgoManagerMock : ISortAlgorythmManager {
-        List<String> AlgoNames = new List<string>();
-        Dictionary<string,ISortAlgorythm> SortAlgos = new Dictionary<string,ISortAlgorythm>();
-
-        public void AddAlgorythm(string UniqueName, ISortAlgorythm SortAlgorythm) {
-            SortAlgos.Add(UniqueName, SortAlgorythm);
-        }
-
-        public ISortAlgorythm GetAlgorythm(string SortAlgorythmName) {
-            return SortAlgos[SortAlgorythmName];
-        }
-
-        public List<string> GetSortAlgorythmsNames() {
-            return AlgoNames;
-        }
-    }
-
-
-    #endregion  MOCKS
-
-
 }
