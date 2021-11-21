@@ -32,7 +32,7 @@ namespace SortingViewer.Controller
         ISortAlgorythmManager _SortAlgorythmManager;
         ISortAlgorythm _SortAlgorythm;
         ISortValues _SortValues;
-
+        IStatisticValues _StatisticValues;
 
         #region PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC 
         public SortController(IUserInput UI, IValueView ValueView, IStatisticsView StatisticView, ISortAlgorythmManager SortAlgorythmManager) {
@@ -42,6 +42,8 @@ namespace SortingViewer.Controller
             _ValueView = ValueView;
             _StatisticView = StatisticView;
             _SortAlgorythmManager = SortAlgorythmManager;
+
+            _StatisticValues = new StatisticValues();
 
             _UI.StartSort += UI_StartSort;
             _UI.StopSort += UI_StopSort;
@@ -55,6 +57,10 @@ namespace SortingViewer.Controller
             _SortWorker.DoWork += _SortWorker_DoWork;
             _SortWorker.RunWorkerCompleted += _SortWorker_RunWorkerCompleted;
             _SortWorker.ProgressChanged += _SortWorker_ProgressChanged;
+
+            
+
+
 
         }
         #endregion PUBLIC 
@@ -71,32 +77,13 @@ namespace SortingViewer.Controller
         }
 
         private void _SortWorker_DoWork(object sender, DoWorkEventArgs e) {
-            throw new NotImplementedException();
-            this._SortRunningState = SortWorkerStates.Sort_Running;
+            _SortRunningState = SortWorkerStates.Sort_Running;
 
             BackgroundWorker worker = sender as BackgroundWorker;
             SortWorkerArguments workerArgs = (SortWorkerArguments)e.Argument;
-            /*
-                An dieser Stelle muss der SortAlgorythmus schrittweise seine arbeit durchführen
-             
-             */
-            
-            
-            
 
-            for(int i = 1; i <= 10; i++) {
-                if(worker.CancellationPending == true) {
-                    e.Cancel = true;
-                    break;
-                }
-                else {
-                    // Perform a time consuming operation and report progress.
-                    System.Threading.Thread.Sleep(500);
-                    worker.ReportProgress(i * 10);
-                }
-            }
-
-
+            workerArgs.SortAlgoryth.SetValues(workerArgs.SortValues);
+            workerArgs.SortAlgoryth.DoSort();
         }
         #endregion SORTWORKER__EVENT-HANDLER   
 
@@ -105,6 +92,9 @@ namespace SortingViewer.Controller
         #region UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  
         private void UI_SetSortAlgorythm(object sender, SetSortAlgorythmEventArgs e) {
             _SortAlgorythm = _SortAlgorythmManager.GetAlgorythm(e.SortAlgorythmName);
+            // SortAlgorythm Events fror inform the controller about its progress
+            _SortAlgorythm.ValueChanged += new EventHandler<ValueChangedEventArgs>(onSortAlgorythmValueChanged);
+            _SortAlgorythm.SortFinish += new EventHandler<SortFinishEventArgs>(onSortAlgorythmSortFinish);
         }
         private void UI_SetValues(object sender, SetSortValuesEventArgs e) {
             _SortValues = e.SortValues;
@@ -120,6 +110,19 @@ namespace SortingViewer.Controller
             _SortWorker.RunWorkerAsync(wArgs);
         }
         #endregion UI__EVENT-HANDLER  
+
+
+
+        #region ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER 
+        private void onSortAlgorythmValueChanged(object sender, ValueChangedEventArgs e) {
+            _StatisticValues.StepNumber = e.StepNumber;
+            _StatisticView.ShowStatistics(_StatisticValues);
+            _ValueView.ShowValues(_SortValues);
+        }
+        private void onSortAlgorythmSortFinish(object sender, SortFinishEventArgs e) {
+            // Nothing implemented so far
+        }
+        #endregion
 
 
 

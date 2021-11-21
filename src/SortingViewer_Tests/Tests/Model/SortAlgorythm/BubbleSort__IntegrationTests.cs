@@ -29,7 +29,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
                   new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
         public void DoSort___is_Sorting_Values(int[] testVals, int[] expectedVals) {
-            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
 
             sort.SetValues(values);
@@ -50,7 +50,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             /* Event Checks from this example
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
-            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
             // Register Finish EventHandler
             bool FinishEventFired = false;
@@ -83,7 +83,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
             SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
-            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             // Register Finish EventHandler
             int ValueChangedEventCounter = 0;
             sort.ValueChanged += delegate (object sender, TestAlgos.ValueChangedEventArgs e) {

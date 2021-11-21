@@ -10,5 +10,6 @@ namespace SortingViewer.Model.Data
     {
         int[] Values { get; set; }
         float[] GetValuesNormalized();
+       
     }
 }

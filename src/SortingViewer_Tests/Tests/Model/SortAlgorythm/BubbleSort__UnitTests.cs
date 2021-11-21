@@ -21,7 +21,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         [Test]
         public void Constructor__Empty_is_not_null (){
 
-            TestAlgos.BubbleSort bsort = new TestAlgos.BubbleSort();
+            TestAlgos.SortAlgorythm_BubbleSortMock bsort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             Assert.IsNotNull(bsort);
         }
 
@@ -30,7 +30,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             /* Event Checks from this example
                 https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order*/
             int nSteps = -1;
-            TestAlgos.BubbleSort sort = new TestAlgos.BubbleSort();
+            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
 
             sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
                 nSteps = e.TotalSteps;

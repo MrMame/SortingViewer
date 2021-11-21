@@ -14,7 +14,7 @@ namespace SortingViewer_Tests.TestingMocks {
         }
 
         public void ShowStatistics(IStatisticValues Stats) {
-            TestContext.WriteLine(Stats.ToString());
+            TestContext.WriteLine($"{DateTime.Now.ToString()} - {Stats.ToString()}");
         }
     }
 }

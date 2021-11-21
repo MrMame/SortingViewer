@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 namespace SortingViewer.Model.Data {
     public interface IStatisticValues {
         string ToString();
+        int StepNumber { get; set; }
     }
 }

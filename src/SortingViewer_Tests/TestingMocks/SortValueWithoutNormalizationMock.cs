@@ -20,5 +20,7 @@ namespace SortingViewer_Tests.TestingMocks {
         public float[] GetValuesNormalized() {
             throw new NotImplementedException();
         }
+
+
     }
 }

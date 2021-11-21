@@ -1,4 +1,5 @@
-﻿using SortingViewer.Model.Data;
+﻿using NUnit.Framework;
+using SortingViewer.Model.Data;
 using SortingViewer.View.Value;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace SortingViewer_Tests.TestingMocks {
         }
 
         public void ShowValues(ISortValues Values) {
-            throw new NotImplementedException();
+            TestContext.WriteLine(string.Join(";",Values.Values));
         }
     }
 }
