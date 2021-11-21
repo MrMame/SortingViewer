@@ -24,6 +24,7 @@ namespace SortingViewer.View.UserInput {
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInputControl));
             this.btnStartSort = new System.Windows.Forms.Button();
             this.cmbSelectSortAlgorythm = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -122,7 +123,7 @@ namespace SortingViewer.View.UserInput {
             this.txtSortValues.Name = "txtSortValues";
             this.txtSortValues.Size = new System.Drawing.Size(154, 20);
             this.txtSortValues.TabIndex = 5;
-            this.txtSortValues.Text = "0,9,8,7,6,5,4,3,2,1";
+            this.txtSortValues.Text = resources.GetString("txtSortValues.Text");
             // 
             // UserInputControl
             // 

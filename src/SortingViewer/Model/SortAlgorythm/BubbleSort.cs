@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SortingViewer.Model.SortAlgorythm
@@ -25,6 +26,7 @@ namespace SortingViewer.Model.SortAlgorythm
                         SortValues.Values[i] = tmp;
                         nShifts++;
                         if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
+                        Thread.Sleep(100);
                     } // Ende if
                     nSteps++;
                 } // Ende innere for-Schleife

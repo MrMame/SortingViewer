@@ -138,7 +138,6 @@ namespace SortingViewer
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();

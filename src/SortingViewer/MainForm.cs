@@ -30,12 +30,6 @@ namespace SortingViewer
             _sc = new SortController(this.userInputControl1, this.valuesBarView1, this.statisticsTextView1, _SortAlgoManager);
         }
 
-        private void MainForm_Resize(object sender, EventArgs e) {
-            Random r = new Random();
-            SortValues sr = new SortValues(r.Next(1, 100), r.Next(1, 100), r.Next(1, 100), r.Next(1, 100), r.Next(1, 100));
-            this.valuesBarView1.ShowValues(sr);
-        }
-
        
     }
 }

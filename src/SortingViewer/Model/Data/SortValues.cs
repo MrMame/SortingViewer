@@ -8,7 +8,6 @@ namespace SortingViewer.Model.Data {
     public class SortValues : ISortValues {
 
         int[] _values;
-        float[] _normalizedValues;
 
         #region PROPERTIES
         /// <summary>
@@ -29,14 +28,13 @@ namespace SortingViewer.Model.Data {
         /// <param name="ValuesList"></param>
         public SortValues(params int[] ValuesList) {
             _values = ValuesList;
-            _normalizedValues = CreateNormalized(ValuesList);
         }
         /// <summary>
         /// Returns a Normalized Array of the values 
         /// </summary>
         /// <returns></returns>
         public float[] GetValuesNormalized() {
-            return _normalizedValues;
+            return CreateNormalized(_values);
         }
         #endregion
 

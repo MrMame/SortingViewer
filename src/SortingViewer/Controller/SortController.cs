@@ -96,6 +96,7 @@ namespace SortingViewer.Controller
         }
         private void UI_SetValues(object sender, SetSortValuesEventArgs e) {
             _SortValues = e.SortValues;
+            _ValueView.ShowValues(_SortValues);
         }
         private void UI_StopSort(object sender, EventArgs e) {
             if(_SortWorker.WorkerSupportsCancellation == true) {
@@ -120,6 +121,7 @@ namespace SortingViewer.Controller
         }
         private void onSortAlgorythmSortFinish(object sender, SortFinishEventArgs e) {
             _StatisticView.ShowStatistics(_StatisticValues);
+            _ValueView.ShowValues(_SortValues);
         }
         #endregion
 
