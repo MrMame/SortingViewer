@@ -12,17 +12,17 @@ namespace SortingViewer.Model.SortAlgorythm
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 
-        ISortValues _SortValues = new SortValues();
+        //ISortValues _SortValues = new SortValues();
 
-        public void DoSort() {
+        public void DoSort(ISortValues SortValues) {
             int nSteps = 0;
             int nShifts = 0;
-            for(int n = _SortValues.Values.Length; n > 1; --n) {
+            for(int n = SortValues.Values.Length; n > 1; --n) {
                 for(int i = 0; i < n - 1; ++i) {
-                    if(_SortValues.Values[i] > _SortValues.Values[i + 1]) {
-                        int tmp = _SortValues.Values[i + 1];
-                        _SortValues.Values[i + 1] = _SortValues.Values[i];
-                        _SortValues.Values[i] = tmp;
+                    if(SortValues.Values[i] > SortValues.Values[i + 1]) {
+                        int tmp = SortValues.Values[i + 1];
+                        SortValues.Values[i + 1] = SortValues.Values[i];
+                        SortValues.Values[i] = tmp;
                         nShifts++;
                         if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
                     } // Ende if
@@ -33,13 +33,13 @@ namespace SortingViewer.Model.SortAlgorythm
             if(SortFinish != null) SortFinish(this, new SortFinishEventArgs() { TotalSteps = nSteps, NumberShifts = nShifts });
         }
 
-        public void DoSortStep() {
-            throw new NotImplementedException();
-        }
+        //public void DoSortStep() {
+        //    throw new NotImplementedException();
+        //}
 
-        public void SetValues(ISortValues Values) {
-            _SortValues = Values;
-        }
+        //public void SetValues(ISortValues Values) {
+        //    _SortValues = Values;
+        //}
 
 
         #region PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE 

@@ -32,8 +32,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
 
-            sort.SetValues(values);
-            sort.DoSort();
+            sort.DoSort(values);
 
             Assert.AreEqual(expectedVals, testVals);
         }
@@ -60,8 +59,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                 numberOfSteps = e.TotalSteps;
             };
             // Do
-            sort.SetValues(values);
-            sort.DoSort();
+            sort.DoSort(values);
             // Asserts
             Debug.WriteLine($"Number of Steps ({numberOfSteps})");
             Assert.IsTrue(FinishEventFired);
@@ -90,8 +88,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                 ValueChangedEventCounter++;
             };
             // Do
-            sort.SetValues(values);
-            sort.DoSort();
+            sort.DoSort(values);
             // Asserts
             Assert.AreEqual(expectedSteps, ValueChangedEventCounter);
             Assert.AreEqual(testVals, expectedVals);

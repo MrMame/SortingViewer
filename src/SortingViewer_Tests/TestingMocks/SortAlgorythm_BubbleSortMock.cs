@@ -12,18 +12,16 @@ namespace SortingViewer.Model.SortAlgorythm
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 
-        ISortValues _SortValues = new SortValues();
-
-
-        public void DoSort() {
+     
+        public void DoSort(ISortValues Values) {
             int nSteps = 0;
             int nShifts = 0;
-            for(int n = _SortValues.Values.Length; n > 1; --n) {
+            for(int n = Values.Values.Length; n > 1; --n) {
                 for(int i = 0; i < n - 1; ++i) {
-                    if(_SortValues.Values[i] > _SortValues.Values[i + 1]) {
-                        int tmp = _SortValues.Values[i + 1];
-                        _SortValues.Values[i + 1] = _SortValues.Values[i];
-                        _SortValues.Values[i] = tmp;
+                    if(Values.Values[i] > Values.Values[i + 1]) {
+                        int tmp = Values.Values[i + 1];
+                        Values.Values[i + 1] = Values.Values[i];
+                        Values.Values[i] = tmp;
                         nShifts++;
                         if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
                     } // Ende if
@@ -32,14 +30,6 @@ namespace SortingViewer.Model.SortAlgorythm
             } // Ende äußere for-Schleife
             // Fire Finish Event
             if(SortFinish != null) SortFinish(this, new SortFinishEventArgs() { TotalSteps = nSteps, NumberShifts = nShifts });
-        }
-
-        public void DoSortStep() {
-            throw new NotImplementedException();
-        }
-
-        public void SetValues(ISortValues Values) {
-            _SortValues = Values;
         }
 
 

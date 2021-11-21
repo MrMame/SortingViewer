@@ -14,16 +14,9 @@ namespace SortingViewer_Tests.TestingMocks {
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 
-        public void DoSort() {
+        public void DoSort(ISortValues Values) {
             throw new NotImplementedException();
         }
 
-        public void DoSortStep() {
-            throw new NotImplementedException();
-        }
-
-        public void SetValues(ISortValues Values) {
-            throw new NotImplementedException();
-        }
     }
 }

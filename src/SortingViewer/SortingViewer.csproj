@@ -67,6 +67,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Statistic\IStatisticsView.cs" />
+    <Compile Include="View\Statistic\StatisticsTextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Statistic\StatisticsTextView.Designer.cs">
+      <DependentUpon>StatisticsTextView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserInput\IUserInput.cs" />
     <Compile Include="View\UserInput\SetSortAlgorythmEventArgs.cs" />
     <Compile Include="View\UserInput\SetSortValuesEventArgs.cs" />
@@ -95,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Statistic\StatisticsTextView.resx">
+      <DependentUpon>StatisticsTextView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserInput\UserInputControl.resx">
       <DependentUpon>UserInputControl.cs</DependentUpon>
     </EmbeddedResource>

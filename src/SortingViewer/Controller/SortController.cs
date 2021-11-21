@@ -80,8 +80,8 @@ namespace SortingViewer.Controller
             BackgroundWorker worker = sender as BackgroundWorker;
             SortWorkerArguments workerArgs = (SortWorkerArguments)e.Argument;
 
-            workerArgs.SortAlgoryth.SetValues(workerArgs.SortValues);
-            workerArgs.SortAlgoryth.DoSort();
+            //workerArgs.SortAlgoryth.SetValues(workerArgs.SortValues);
+            workerArgs.SortAlgoryth.DoSort(workerArgs.SortValues);
         }
         #endregion SORTWORKER__EVENT-HANDLER   
 
@@ -119,7 +119,7 @@ namespace SortingViewer.Controller
             _ValueView.ShowValues(_SortValues);
         }
         private void onSortAlgorythmSortFinish(object sender, SortFinishEventArgs e) {
-            // Nothing implemented so far
+            _StatisticView.ShowStatistics(_StatisticValues);
         }
         #endregion
 

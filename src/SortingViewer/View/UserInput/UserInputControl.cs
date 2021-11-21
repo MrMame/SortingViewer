@@ -47,7 +47,8 @@ namespace SortingViewer.View.UserInput {
             if(StopSort != null) StopSort(this, e);
         }
         private void btnSetValues_Click(object sender, EventArgs e) {
-            SetSortValuesEventArgs ea = new SetSortValuesEventArgs() { SortValues = new SortValues(new int[] { 1, 2, 3, 4 }) };
+            int[] SortValues = Array.ConvertAll(txtSortValues.Text.Split(','), int.Parse);
+            SetSortValuesEventArgs ea = new SetSortValuesEventArgs() { SortValues = new SortValues(SortValues) };
             if(SetValues != null) SetValues(this,ea);
         }
         private void cmbSelectSortAlgorythm_SelectedIndexChanged(object sender, EventArgs e) {

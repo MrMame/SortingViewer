@@ -30,6 +30,7 @@ namespace SortingViewer.View.UserInput {
             this.btnStopSort = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSetValues = new System.Windows.Forms.Button();
+            this.txtSortValues = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@ namespace SortingViewer.View.UserInput {
             this.tableLayoutPanel1.Controls.Add(this.cmbSelectSortAlgorythm, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnStartSort, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnSetValues, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtSortValues, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -112,6 +114,16 @@ namespace SortingViewer.View.UserInput {
             this.btnSetValues.UseVisualStyleBackColor = true;
             this.btnSetValues.Click += new System.EventHandler(this.btnSetValues_Click);
             // 
+            // txtSortValues
+            // 
+            this.txtSortValues.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSortValues.Location = new System.Drawing.Point(163, 77);
+            this.txtSortValues.Name = "txtSortValues";
+            this.txtSortValues.Size = new System.Drawing.Size(154, 20);
+            this.txtSortValues.TabIndex = 5;
+            this.txtSortValues.Text = "0,9,8,7,6,5,4,3,2,1";
+            // 
             // UserInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +145,6 @@ namespace SortingViewer.View.UserInput {
         private System.Windows.Forms.Button btnStopSort;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSetValues;
+        private System.Windows.Forms.TextBox txtSortValues;
     }
 }

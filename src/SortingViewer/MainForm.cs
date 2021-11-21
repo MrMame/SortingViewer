@@ -16,6 +16,7 @@ namespace SortingViewer
     public partial class MainForm : Form
     {
 
+        SortController _sc;
         ISortAlgorythmManager _SortAlgoManager = new SortAlgorythmManager();
 
 
@@ -25,8 +26,8 @@ namespace SortingViewer
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-
-
+            _SortAlgoManager.AddAlgorythm("BubbleSort", new BubbleSort());
+            _sc = new SortController(this.userInputControl1, this.valuesBarView1, this.statisticsTextView1, _SortAlgoManager);
         }
 
         private void MainForm_Resize(object sender, EventArgs e) {

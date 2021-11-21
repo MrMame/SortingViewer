@@ -26,7 +26,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         }
 
         [Test]
-        public void DoSort___Without_SetValues_Fires_FinishEvent_With_0_Steps() {
+        public void DoSort___Without_SetValues_ThrowsException() {
             /* Event Checks from this example
                 https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order*/
             int nSteps = -1;
@@ -36,9 +36,9 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                 nSteps = e.TotalSteps;
             };
 
-            sort.DoSort();
-
-            Assert.AreEqual(0, nSteps);
+            //sort.DoSort();
+            // Needs to be implemented
+            Assert.AreEqual(true,false);
         }
 
     }
