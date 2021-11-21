@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace SortingViewer.Model.SortAlgorythm {
     public class SortFinishEventArgs : EventArgs {
         public int TotalSteps{get; set;}
+        public int NumberShifts { get; set; }
+
     }
 }

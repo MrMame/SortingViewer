@@ -42,25 +42,77 @@ namespace SortingViewer_Tests.Tests.Controller {
              */
 
             //arrange
-            StatisticsView_DebugPrintMock statVw = new StatisticsView_DebugPrintMock();
+            // User Input Control Mock
             UserInput_Mock ui = new UserInput_Mock();
+            // Views to show the results
+            StatisticsView_DebugPrintMock statVw = new StatisticsView_DebugPrintMock();
             ValueView_DebugPrintMock SortVw = new ValueView_DebugPrintMock();
-            SortAlgorythm_BubbleSortMock SortAlgo = new SortAlgorythm_BubbleSortMock();
+            // Creating Sortalgo and putting it into the manager Sortalgorythm manager 
             SortAlgorythmManager_StandardMock AlgoMock = new SortAlgorythmManager_StandardMock();
+            SortAlgorythm_BubbleSortMock SortAlgo = new SortAlgorythm_BubbleSortMock();
             AlgoMock.AddAlgorythm("SortAlgoMock", SortAlgo);
-            // act
+            // Creating the Controller to Test
             TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
 
+            // act - Lets push the buttons inside the ui
             ui.Do_SetSortAlgorythm("SortAlgoMock");
             ui.Do_SetValues(new SortValues(new int[] { 1, -50, -23, 34, 50, 0, -1, 25, -25, -35 }));
             ui.Do_StartSort();  // Simulate "PushButtonStartSort" Event from UI
+            // wait until the sort is finished
             while(sc.SortProcessState != TestingController.SortWorkerStates.Sort_Finished) { }
 
             // assert
             Assert.AreEqual(SortingViewer.Controller.SortController.SortWorkerStates.Sort_Finished, sc.SortProcessState);
 
         }
-    
+
+        [Test]
+        [TestCase(new int[] { },
+                 new int[] { },
+                    0)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                 new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                    0)]
+        [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
+                 new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+                    24)]
+        public void StartSort_IsSortingValues_Right(int[] testVals, int[] expectedVals, int expectedSteps) {
+
+            /*
+                Testing Events
+                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order
+                https://stackoverflow.com/questions/1770830/c-how-to-test-a-basic-threaded-worker-class
+             */
+
+            //arrange
+            
+            // User Input Control Mock
+            UserInput_Mock ui = new UserInput_Mock();
+            
+            // Views to show the results
+            StatisticsView_DebugPrintMock statVw = new StatisticsView_DebugPrintMock();
+            ValueView_DebugPrintMock SortVw = new ValueView_DebugPrintMock();
+
+            // Creating Sortalgo and putting it into the manager Sortalgorythm manager 
+            SortAlgorythmManager_StandardMock AlgoMock = new SortAlgorythmManager_StandardMock();
+            SortAlgorythm_BubbleSortMock SortAlgo = new SortAlgorythm_BubbleSortMock();
+            AlgoMock.AddAlgorythm("SortAlgoMock", SortAlgo);
+            
+            // Creating the Controller to Test
+            TestingController sc = new TestingController(ui, SortVw, statVw, AlgoMock);
+
+            // act - Lets push the buttons inside the ui
+            ui.Do_SetSortAlgorythm("SortAlgoMock");
+            ui.Do_SetValues(new SortValues(testVals));
+            ui.Do_StartSort();  // Simulate "PushButtonStartSort" Event from UI
+            // wait until the sort is finished
+            while(sc.SortProcessState != TestingController.SortWorkerStates.Sort_Finished) { }
+            
+            // assert
+            Assert.AreEqual(sc.SortValues.Values, expectedVals);
+            Assert.AreEqual(sc.StatisticValues.NumberShifts, expectedSteps);
+
+        }
 
 
     }

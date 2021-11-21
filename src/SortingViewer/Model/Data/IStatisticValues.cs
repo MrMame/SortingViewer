@@ -8,5 +8,7 @@ namespace SortingViewer.Model.Data {
     public interface IStatisticValues {
         string ToString();
         int StepNumber { get; set; }
+        int NumberShifts { get; set; }
+
     }
 }

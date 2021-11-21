@@ -14,22 +14,23 @@ namespace SortingViewer.Model.SortAlgorythm
 
         ISortValues _SortValues = new SortValues();
 
-
         public void DoSort() {
             int nSteps = 0;
+            int nShifts = 0;
             for(int n = _SortValues.Values.Length; n > 1; --n) {
                 for(int i = 0; i < n - 1; ++i) {
                     if(_SortValues.Values[i] > _SortValues.Values[i + 1]) {
                         int tmp = _SortValues.Values[i + 1];
                         _SortValues.Values[i + 1] = _SortValues.Values[i];
                         _SortValues.Values[i] = tmp;
-                        if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps });
+                        nShifts++;
+                        if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
                     } // Ende if
                     nSteps++;
                 } // Ende innere for-Schleife
             } // Ende äußere for-Schleife
             // Fire Finish Event
-            if(SortFinish != null) SortFinish(this, new SortFinishEventArgs() { TotalSteps = nSteps});
+            if(SortFinish != null) SortFinish(this, new SortFinishEventArgs() { TotalSteps = nSteps, NumberShifts = nShifts });
         }
 
         public void DoSortStep() {

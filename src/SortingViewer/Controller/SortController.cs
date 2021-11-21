@@ -22,6 +22,8 @@ namespace SortingViewer.Controller
         }
 
         public SortWorkerStates SortProcessState { get => _SortRunningState; }
+        public IStatisticValues StatisticValues { get => _StatisticValues; }
+        public ISortValues SortValues { get => _SortValues; }
 
         SortWorkerStates _SortRunningState = SortWorkerStates.Sort_Ready;
         BackgroundWorker _SortWorker;
@@ -57,10 +59,6 @@ namespace SortingViewer.Controller
             _SortWorker.DoWork += _SortWorker_DoWork;
             _SortWorker.RunWorkerCompleted += _SortWorker_RunWorkerCompleted;
             _SortWorker.ProgressChanged += _SortWorker_ProgressChanged;
-
-            
-
-
 
         }
         #endregion PUBLIC 
@@ -116,6 +114,7 @@ namespace SortingViewer.Controller
         #region ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER 
         private void onSortAlgorythmValueChanged(object sender, ValueChangedEventArgs e) {
             _StatisticValues.StepNumber = e.StepNumber;
+            _StatisticValues.NumberShifts = e.NumberShifts;
             _StatisticView.ShowStatistics(_StatisticValues);
             _ValueView.ShowValues(_SortValues);
         }
