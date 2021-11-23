@@ -34,7 +34,6 @@ namespace SortingViewer
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.userInputControl1 = new SortingViewer.View.UserInput.UserInputControl();
             this.valuesBarView1 = new SortingViewer.View.Value.ValuesBarView();
-            this.statisticsTextView1 = new SortingViewer.View.Statistic.StatisticsTextView();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -42,7 +41,6 @@ namespace SortingViewer
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
@@ -88,10 +86,6 @@ namespace SortingViewer
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.statisticsTextView1);
-            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.userInputControl1);
@@ -120,14 +114,6 @@ namespace SortingViewer
             this.valuesBarView1.Size = new System.Drawing.Size(1054, 576);
             this.valuesBarView1.TabIndex = 0;
             // 
-            // statisticsTextView1
-            // 
-            this.statisticsTextView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticsTextView1.Location = new System.Drawing.Point(0, 0);
-            this.statisticsTextView1.Name = "statisticsTextView1";
-            this.statisticsTextView1.Size = new System.Drawing.Size(529, 120);
-            this.statisticsTextView1.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,7 +131,6 @@ namespace SortingViewer
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -160,7 +145,6 @@ namespace SortingViewer
         private System.Windows.Forms.SplitContainer splitContainer2;
         private View.Value.ValuesBarView valuesBarView1;
         private View.UserInput.UserInputControl userInputControl1;
-        private View.Statistic.StatisticsTextView statisticsTextView1;
     }
 }
 

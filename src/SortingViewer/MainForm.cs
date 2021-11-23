@@ -1,6 +1,7 @@
 ﻿using SortingViewer.Controller;
 using SortingViewer.Model.Data;
 using SortingViewer.Model.SortAlgorythm;
+using SortingViewer.View.Statistic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,8 +27,14 @@ namespace SortingViewer
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
+            // Create Views
+            IStatisticsView txtView = StatisticsViewFactory.CreateTextView();
+            
+            // Add Views to the Parentcontrols
+            this.splitContainer2.Panel1.Controls.Add((Control)txtView);
+
             _SortAlgoManager.AddAlgorythm("BubbleSort", new BubbleSort());
-            _sc = new SortController(this.userInputControl1, this.valuesBarView1, this.statisticsTextView1, _SortAlgoManager);
+            _sc = new SortController(this.userInputControl1, this.valuesBarView1, txtView, _SortAlgoManager);
         }
 
        

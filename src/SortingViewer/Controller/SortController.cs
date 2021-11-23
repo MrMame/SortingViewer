@@ -36,7 +36,7 @@ namespace SortingViewer.Controller
         ISortValues _SortValues;
         IStatisticValues _StatisticValues;
 
-        #region PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC PUBLIC 
+        #region PUBLIC
         public SortController(IUserInput UI, IValueView ValueView, IStatisticsView StatisticView, ISortAlgorythmManager SortAlgorythmManager) {
             if(UI == null || ValueView == null || StatisticView == null || SortAlgorythmManager == null) throw new ArgumentNullException();
 
@@ -65,7 +65,7 @@ namespace SortingViewer.Controller
 
 
 
-        #region SORTWORKER__EVENT-HANDLER   SORTWORKER__EVENT-HANDLER   SORTWORKER__EVENT-HANDLER   SORTWORKER__EVENT-HANDLER   SORTWORKER__EVENT-HANDLER   
+        #region SORTWORKER__EVENT-HANDLER 
         private void _SortWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
             throw new NotImplementedException();
         }
@@ -87,7 +87,7 @@ namespace SortingViewer.Controller
 
 
 
-        #region UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  UI__EVENT-HANDLER  
+        #region UI__EVENT-HANDLER
         private void UI_SetSortAlgorythm(object sender, SetSortAlgorythmEventArgs e) {
             _SortAlgorythm = _SortAlgorythmManager.GetAlgorythm(e.SortAlgorythmName);
             // SortAlgorythm Events fror inform the controller about its progress
@@ -112,7 +112,7 @@ namespace SortingViewer.Controller
 
 
 
-        #region ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER ISortAlgorythm___EVENT-HANDLER 
+        #region ISortAlgorythm___EVENT-HANDLER
         private void onSortAlgorythmValueChanged(object sender, ValueChangedEventArgs e) {
             _StatisticValues.StepNumber = e.StepNumber;
             _StatisticValues.NumberShifts = e.NumberShifts;
@@ -127,7 +127,7 @@ namespace SortingViewer.Controller
 
 
 
-        #region PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE 
+        #region PRIVATE
         private class SortWorkerArguments {
             public ISortValues SortValues { get => _SortValues; }
             public ISortAlgorythm SortAlgoryth { get => _SortAlgorythm; }

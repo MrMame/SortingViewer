@@ -73,6 +73,7 @@
     <Compile Include="View\Statistic\StatisticsTextView.Designer.cs">
       <DependentUpon>StatisticsTextView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Statistic\StatisticsViewFactory.cs" />
     <Compile Include="View\UserInput\IUserInput.cs" />
     <Compile Include="View\UserInput\SetSortAlgorythmEventArgs.cs" />
     <Compile Include="View\UserInput\SetSortValuesEventArgs.cs" />
