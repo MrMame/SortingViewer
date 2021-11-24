@@ -1,5 +1,6 @@
 ﻿using SortingViewer.Controller;
 using SortingViewer.Controller.SortAlgorythmManagers;
+using SortingViewer.Controller.SortControllers;
 using SortingViewer.Model.Data;
 using SortingViewer.View.Statistic;
 using SortingViewer.View.UserInput;
@@ -33,13 +34,13 @@ namespace SortingViewer
             IValueView valBview = ValueViewFactory.CreateValueBarView();
             IUserInput uiControl = UserInputFactory.CreateUserInputView();
             
-
             // Add Views to the Parentcontrols
             this.splitContainer2.Panel1.Controls.Add((Control)txtView);
             this.splitContainer2.Panel2.Controls.Add((Control)uiControl);
             this.splitContainer1.Panel2.Controls.Add((Control)valBview);
 
-            _sc = new SortController(uiControl, valBview, txtView, SortAlgorythmManagerFactory.CreatePreloadedManager());
+            _sc = SortControllerFactory.CreateSortControllerWithPreloadedSortAlgorythms(uiControl, valBview, txtView);
+            
         }
 
        

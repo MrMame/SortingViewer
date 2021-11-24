@@ -49,7 +49,8 @@
     <Compile Include="Controller\SortAlgorythmManagers\iSortAlgorythmManager.cs" />
     <Compile Include="Controller\SortAlgorythmManagers\SortAlgorythmManager.cs" />
     <Compile Include="Controller\SortAlgorythmManagers\SortAlgorythmManagerFactory.cs" />
-    <Compile Include="Controller\SortController.cs" />
+    <Compile Include="Controller\SortControllers\SortController.cs" />
+    <Compile Include="Controller\SortControllers\SortControllerFactory.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
