@@ -39,7 +39,8 @@ namespace SortingViewer
             this.splitContainer2.Panel2.Controls.Add((Control)uiControl);
             this.splitContainer1.Panel2.Controls.Add((Control)valBview);
 
-            _SortAlgoManager.AddAlgorythm("BubbleSort", new BubbleSort());
+            _SortAlgoManager.AddAlgorythm("BubbleSort", SortAlgorythmFactory.CreateBubbleSort());
+            _SortAlgoManager.AddAlgorythm("BinarySort", SortAlgorythmFactory.CreateBinarySort());
             _sc = new SortController(uiControl, valBview, txtView, _SortAlgoManager);
         }
 
