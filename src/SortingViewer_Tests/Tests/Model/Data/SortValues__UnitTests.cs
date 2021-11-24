@@ -1,5 +1,7 @@
 using NUnit.Framework;
 
+using SortingViewer.Model.Data.SortValues;
+
 namespace SortingViewer_Tests.Tests.Model.Data {
     public class SortValues__UnitTests {
         [SetUp]
@@ -11,18 +13,18 @@ namespace SortingViewer_Tests.Tests.Model.Data {
 
             [Test]
             public void Empty_Constructor_Is_Not_Null() {
-                var val = new SortingViewer.Model.Data.SortValues();
+                var val = new SortValues();
                 Assert.IsNotNull(val);
             }
             [Test]
             public void Empty_Constructor_Returns_Empty_int_Array() {
-                var val = new SortingViewer.Model.Data.SortValues();
+                var val = new SortValues();
                 Assert.AreEqual(new int[] { }, val.Values);
             }
             [Test]
             public void Constructor_With_IntValues_Returns_Equal_IntArray_Property() {
                 int[] testVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 100 };
-                var val = new SortingViewer.Model.Data.SortValues(testVals);
+                var val = new SortValues(testVals);
                 Assert.AreEqual(testVals, val.Values);
             }
             [Test]
@@ -30,7 +32,7 @@ namespace SortingViewer_Tests.Tests.Model.Data {
             [TestCase(new int[] { 1, -99, -23, 34, 105, 0, -1, 1, 9, -0100 })]
             [TestCase(new int[] { })]
             public void Constructor_With_IntValues_Returns_Equal_IntArray_Property(int[] testVals) {
-                var val = new SortingViewer.Model.Data.SortValues(testVals);
+                var val = new SortValues(testVals);
                 Assert.AreEqual(testVals, val.Values);
             }
 
@@ -50,7 +52,7 @@ namespace SortingViewer_Tests.Tests.Model.Data {
                 new float[] { 0.51F, 0.0F, 0.27F, 0.84F, 1.0F, 0.5F, 0.49F, 0.75F, 0.25F, 0.15F })]
             public void Value_Array_is_Normalized(int[] testVals, float[] expectedVals) {
                 //Check
-                var val = new SortingViewer.Model.Data.SortValues(testVals);
+                var val = new SortValues(testVals);
                 float[] normVals = val.GetValuesNormalized();
 
                 // If both are empty, we assume that theay ae equal

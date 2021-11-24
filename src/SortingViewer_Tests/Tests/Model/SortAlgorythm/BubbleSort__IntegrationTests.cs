@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SortingViewer.Model.Data.SortValues;
+
 using NUnit.Framework;
 
 using TestAlgos = SortingViewer.Model.SortAlgorythm;
@@ -30,7 +32,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                   new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
         public void DoSort___is_Sorting_Values(int[] testVals, int[] expectedVals) {
             TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
-            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+            SortValues values = new SortValues(testVals);
 
             sort.DoSort(values);
 
@@ -50,7 +52,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
             TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
-            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+            SortValues values = new SortValues(testVals);
             // Register Finish EventHandler
             bool FinishEventFired = false;
             int numberOfSteps = 0;
@@ -80,7 +82,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             /* Event Checks from this example
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
-            SortingViewer.Model.Data.SortValues values = new SortingViewer.Model.Data.SortValues(testVals);
+            SortValues values = new SortValues(testVals);
             TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
             // Register Finish EventHandler
             int ValueChangedEventCounter = 0;

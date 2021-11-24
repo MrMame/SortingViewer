@@ -1,4 +1,5 @@
 ﻿using SortingViewer.Model.Data;
+using SortingViewer.Model.Data.SortValues;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace SortingViewer.View.Value
     {
 
         private ISortValues _Values;
-        private ISortValues _initValues = new SortValues(10,25,40,25,1,12,40,34,50,23,33,72,37,42,13,25,6,95,100);
+        private ISortValues _initValues = SortValuesFactory.CreateStandardSortValues(10,25,40,25,1,12,40,34,50,23,33,72,37,42,13,25,6,95,100);
 
         private int _padding = 5;
         private Brush _BackgroundBrush = Brushes.Black;

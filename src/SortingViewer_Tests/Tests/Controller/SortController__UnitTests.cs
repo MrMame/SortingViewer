@@ -7,7 +7,7 @@ using SortingViewer.Controller;
 
 using NUnit.Framework;
 using SortingViewer.View.Value;
-using SortingViewer.Model.Data;
+using SortingViewer.Model.Data.SortValues;
 using SortingViewer.View.UserInput;
 using SortingViewer.View.Statistic;
 

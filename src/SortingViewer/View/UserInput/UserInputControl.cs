@@ -1,5 +1,5 @@
 ﻿using SortingViewer.Controller;
-using SortingViewer.Model.Data;
+using SortingViewer.Model.Data.SortValues;
 using SortingViewer.Model.SortAlgorythm;
 using System;
 using System.Collections.Generic;
@@ -48,7 +48,7 @@ namespace SortingViewer.View.UserInput {
         }
         private void btnSetValues_Click(object sender, EventArgs e) {
             int[] SortValues = Array.ConvertAll(txtSortValues.Text.Split(','), int.Parse);
-            SetSortValuesEventArgs ea = new SetSortValuesEventArgs() { SortValues = new SortValues(SortValues) };
+            SetSortValuesEventArgs ea = new SetSortValuesEventArgs() { SortValues = SortValuesFactory.CreateStandardSortValues(SortValues) };
             if(SetValues != null) SetValues(this,ea);
         }
         private void cmbSelectSortAlgorythm_SelectedIndexChanged(object sender, EventArgs e) {
