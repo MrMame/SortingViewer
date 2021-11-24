@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\iSortAlgorythmManager.cs" />
-    <Compile Include="Controller\SortAlgorythmManager.cs" />
+    <Compile Include="Controller\SortAlgorythmManagers\iSortAlgorythmManager.cs" />
+    <Compile Include="Controller\SortAlgorythmManagers\SortAlgorythmManager.cs" />
+    <Compile Include="Controller\SortAlgorythmManagers\SortAlgorythmManagerFactory.cs" />
     <Compile Include="Controller\SortController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
