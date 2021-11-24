@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using SortingViewer.Controller;
 
 using NUnit.Framework;
-using SortingViewer.View.Value;
+using SortingViewer.Views.ValueViews;
 using SortingViewer.Model.Data.SortValues;
-using SortingViewer.View.UserInput;
-using SortingViewer.View.Statistic;
+using SortingViewer.Views.UserInput;
+using SortingViewer.Views.StatisticViews;
 
 using TestingController = SortingViewer.Controller.SortController;
 using SortingViewer.Model.SortAlgorythm;

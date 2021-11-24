@@ -1,5 +1,5 @@
 ﻿
-namespace SortingViewer.View.UserInput {
+namespace SortingViewer.Views.UserInput {
     partial class UserInputControl {
         /// <summary> 
         /// Erforderliche Designervariable.

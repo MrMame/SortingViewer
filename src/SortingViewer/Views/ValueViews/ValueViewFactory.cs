@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortingViewer.View.Value {
+namespace SortingViewer.Views.ValueViews {
     public class ValueViewFactory {
         public static ValuesBarView CreateValueBarView() {
             ValuesBarView vv = new ValuesBarView();

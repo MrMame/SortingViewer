@@ -10,8 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SortingViewer.View.Value
-{
+namespace SortingViewer.Views.ValueViews {
     public partial class ValuesBarView : UserControl,IValueView
     {
 

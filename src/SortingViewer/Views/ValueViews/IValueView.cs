@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortingViewer.View.Value
-{
+namespace SortingViewer.Views.ValueViews{
     public interface IValueView
     {
         void ShowValues(ISortValues Values);

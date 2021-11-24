@@ -1,8 +1,7 @@
 ﻿
 using SortingViewer.Model.Data;
 
-namespace SortingViewer.View.Value
-{
+namespace SortingViewer.Views.ValueViews {
     partial class ValuesBarView
     {
         /// <summary> 

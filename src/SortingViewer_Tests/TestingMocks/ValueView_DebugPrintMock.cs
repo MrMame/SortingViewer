@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SortingViewer.Model.Data.SortValues;
-using SortingViewer.View.Value;
+using SortingViewer.Views.ValueViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;

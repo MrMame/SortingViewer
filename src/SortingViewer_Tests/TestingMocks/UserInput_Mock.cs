@@ -1,5 +1,5 @@
 ﻿using SortingViewer.Model.Data.SortValues;
-using SortingViewer.View.UserInput;
+using SortingViewer.Views.UserInput;
 using System;
 using System.Collections.Generic;
 using System.Linq;

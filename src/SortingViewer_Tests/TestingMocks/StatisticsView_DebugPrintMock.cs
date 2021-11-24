@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SortingViewer.Model.Data.StatisticValues;
-using SortingViewer.View.Statistic;
+using SortingViewer.Views.StatisticViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;

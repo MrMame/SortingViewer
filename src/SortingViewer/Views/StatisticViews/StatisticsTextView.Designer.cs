@@ -1,5 +1,5 @@
 ﻿
-namespace SortingViewer.View.Statistic {
+namespace SortingViewer.Views.StatisticViews {
     partial class StatisticsTextView {
         /// <summary> 
         /// Erforderliche Designervariable.

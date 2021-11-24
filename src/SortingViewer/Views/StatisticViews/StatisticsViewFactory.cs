@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Windows.Forms;
 
-namespace SortingViewer.View.Statistic {
+namespace SortingViewer.Views.StatisticViews {
     public class StatisticsViewFactory {
         /// <summary>
         /// Creates a Text Statistics View inside the Parentcontrol

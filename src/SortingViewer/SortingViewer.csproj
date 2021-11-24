@@ -71,32 +71,32 @@
     <Compile Include="Model\SortAlgorythm\ValueChangedEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Statistic\IStatisticsView.cs" />
-    <Compile Include="View\Statistic\StatisticsTextView.cs">
+    <Compile Include="Views\StatisticViews\IStatisticsView.cs" />
+    <Compile Include="Views\StatisticViews\StatisticsTextView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Statistic\StatisticsTextView.Designer.cs">
+    <Compile Include="Views\StatisticViews\StatisticsTextView.Designer.cs">
       <DependentUpon>StatisticsTextView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Statistic\StatisticsViewFactory.cs" />
-    <Compile Include="View\UserInput\IUserInput.cs" />
-    <Compile Include="View\UserInput\SetSortAlgorythmEventArgs.cs" />
-    <Compile Include="View\UserInput\SetSortValuesEventArgs.cs" />
-    <Compile Include="View\UserInput\UserInputControl.cs">
+    <Compile Include="Views\StatisticViews\StatisticsViewFactory.cs" />
+    <Compile Include="Views\UserInput\IUserInput.cs" />
+    <Compile Include="Views\UserInput\SetSortAlgorythmEventArgs.cs" />
+    <Compile Include="Views\UserInput\SetSortValuesEventArgs.cs" />
+    <Compile Include="Views\UserInput\UserInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserInput\UserInputControl.Designer.cs">
+    <Compile Include="Views\UserInput\UserInputControl.Designer.cs">
       <DependentUpon>UserInputControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserInput\UserInputFactory.cs" />
-    <Compile Include="View\Value\IValueView.cs" />
-    <Compile Include="View\Value\ValuesBarView.cs">
+    <Compile Include="Views\UserInput\UserInputFactory.cs" />
+    <Compile Include="Views\ValueViews\IValueView.cs" />
+    <Compile Include="Views\ValueViews\ValuesBarView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Value\ValuesBarView.Designer.cs">
+    <Compile Include="Views\ValueViews\ValuesBarView.Designer.cs">
       <DependentUpon>ValuesBarView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Value\ValueViewFactory.cs" />
+    <Compile Include="Views\ValueViews\ValueViewFactory.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,13 +109,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Statistic\StatisticsTextView.resx">
+    <EmbeddedResource Include="Views\StatisticViews\StatisticsTextView.resx">
       <DependentUpon>StatisticsTextView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserInput\UserInputControl.resx">
+    <EmbeddedResource Include="Views\UserInput\UserInputControl.resx">
       <DependentUpon>UserInputControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Value\ValuesBarView.resx">
+    <EmbeddedResource Include="Views\ValueViews\ValuesBarView.resx">
       <DependentUpon>ValuesBarView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SortingViewer.View.Statistic {
+namespace SortingViewer.Views.StatisticViews {
     public partial class StatisticsTextView : UserControl,IStatisticsView {
         public StatisticsTextView() {
             InitializeComponent();

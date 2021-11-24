@@ -1,9 +1,9 @@
 ﻿using SortingViewer.Model.Data.StatisticValues;
 using SortingViewer.Model.Data.SortValues;
 using SortingViewer.Model.SortAlgorythm;
-using SortingViewer.View.Statistic;
-using SortingViewer.View.UserInput;
-using SortingViewer.View.Value;
+using SortingViewer.Views.StatisticViews;
+using SortingViewer.Views.UserInput;
+using SortingViewer.Views.ValueViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

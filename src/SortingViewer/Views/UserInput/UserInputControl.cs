@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SortingViewer.View.UserInput {
+namespace SortingViewer.Views.UserInput {
     public partial class UserInputControl : UserControl,IUserInput {
 
 
