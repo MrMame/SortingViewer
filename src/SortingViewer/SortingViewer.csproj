@@ -83,6 +83,7 @@
     <Compile Include="View\UserInput\UserInputControl.Designer.cs">
       <DependentUpon>UserInputControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserInput\UserInputFactory.cs" />
     <Compile Include="View\Value\IValueView.cs" />
     <Compile Include="View\Value\ValuesBarView.cs">
       <SubType>UserControl</SubType>

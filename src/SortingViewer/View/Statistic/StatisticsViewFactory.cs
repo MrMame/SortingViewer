@@ -16,7 +16,6 @@ namespace SortingViewer.View.Statistic {
         public static StatisticsTextView CreateTextView() {
             StatisticsTextView tView = new StatisticsTextView();
             tView.Dock = DockStyle.Fill;
-
             return tView;
         }
     }

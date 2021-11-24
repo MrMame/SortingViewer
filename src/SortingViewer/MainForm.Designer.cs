@@ -32,14 +32,12 @@ namespace SortingViewer
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.userInputControl1 = new SortingViewer.View.UserInput.UserInputControl();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,23 +78,9 @@ namespace SortingViewer
             this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.userInputControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1078, 120);
             this.splitContainer2.SplitterDistance = 529;
             this.splitContainer2.TabIndex = 0;
-            // 
-            // userInputControl1
-            // 
-            this.userInputControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userInputControl1.Location = new System.Drawing.Point(3, 9);
-            this.userInputControl1.Name = "userInputControl1";
-            this.userInputControl1.Size = new System.Drawing.Size(528, 106);
-            this.userInputControl1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -114,7 +98,6 @@ namespace SortingViewer
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -126,7 +109,6 @@ namespace SortingViewer
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private View.UserInput.UserInputControl userInputControl1;
     }
 }
 
