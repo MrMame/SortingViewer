@@ -1,4 +1,5 @@
-﻿using SortingViewer.Model.Data;
+﻿using SortingViewer.Model.Data.StatisticValues;
+using SortingViewer.Model.Data.SortValues;
 using SortingViewer.Model.SortAlgorythm;
 using SortingViewer.View.Statistic;
 using SortingViewer.View.UserInput;

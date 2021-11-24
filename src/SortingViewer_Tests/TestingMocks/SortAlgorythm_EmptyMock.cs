@@ -1,4 +1,4 @@
-﻿using SortingViewer.Model.Data;
+﻿using SortingViewer.Model.Data.SortValues;
 using SortingViewer.Model.SortAlgorythm;
 using System;
 using System.Collections.Generic;

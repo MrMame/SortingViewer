@@ -58,10 +58,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Data\SortValues\ISortValues.cs" />
-    <Compile Include="Model\Data\IStatisticValues.cs" />
+    <Compile Include="Model\Data\StatisticValues\IStatisticValues.cs" />
     <Compile Include="Model\Data\SortValues\SortValues.cs" />
     <Compile Include="Model\Data\SortValues\SortValuesFactory.cs" />
-    <Compile Include="Model\Data\StatisticValues.cs" />
+    <Compile Include="Model\Data\StatisticValues\StastisticValueFactory.cs" />
+    <Compile Include="Model\Data\StatisticValues\StatisticValues.cs" />
     <Compile Include="Model\SortAlgorythm\BinarySort.cs" />
     <Compile Include="Model\SortAlgorythm\BubbleSort.cs" />
     <Compile Include="Model\SortAlgorythm\ISortAlgorythm.cs" />

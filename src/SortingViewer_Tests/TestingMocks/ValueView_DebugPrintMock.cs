@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SortingViewer.Model.Data;
+using SortingViewer.Model.Data.SortValues;
 using SortingViewer.View.Value;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SortingViewer.Model.Data {
+namespace SortingViewer.Model.Data.StatisticValues {
     class StatisticValues : IStatisticValues {
         int _StepNumber = 0;
         int _NumberShifts = 0;
