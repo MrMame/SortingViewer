@@ -10,10 +10,13 @@ namespace SortingViewer.Model.SortAlgorythm
 {
 
     public class BubbleSort : ISortAlgorythm {
+
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 
-        //ISortValues _SortValues = new SortValues();
+        public int StepDelayTime { get => _StepDelayTime; set => _StepDelayTime = Math.Abs(value); }
+
+        int _StepDelayTime=50;
 
         public void DoSort(ISortValues SortValues) {
             int nSteps = 0;
@@ -26,7 +29,7 @@ namespace SortingViewer.Model.SortAlgorythm
                         SortValues.Values[i] = tmp;
                         nShifts++;
                         if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
-                        Thread.Sleep(100);
+                        Thread.Sleep(_StepDelayTime);
                     } // Ende if
                     nSteps++;
                 } // Ende innere for-Schleife
