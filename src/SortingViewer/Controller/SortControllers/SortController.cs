@@ -28,6 +28,7 @@ namespace SortingViewer.Controller
 
         SortWorkerStates _SortRunningState = SortWorkerStates.Sort_Ready;
         BackgroundWorker _SortWorker;
+        SortAlgorythmThread _SortThread;
 
         IUserInput _UI;
         IValueView _ValueView;
@@ -82,7 +83,12 @@ namespace SortingViewer.Controller
             SortWorkerArguments workerArgs = (SortWorkerArguments)e.Argument;
 
             //workerArgs.SortAlgoryth.SetValues(workerArgs.SortValues);
-            workerArgs.SortAlgoryth.DoSort(workerArgs.SortValues);
+            //workerArgs.SortAlgoryth.DoSort(workerArgs.SortValues);
+            _SortThread = SortAlgorythmThreadFactory.CreateSortAlgorythmThread(workerArgs.SortAlgoryth);
+            //_SortThread.ValueChanged += this.onSortAlgorythmValueChanged;
+            //_SortThread.SortFinish += this.onSortAlgorythmSortFinish;
+            _SortThread.StartTheSortAlgorythm(workerArgs.SortValues);
+
         }
         #endregion SORTWORKER__EVENT-HANDLER   
 
@@ -102,7 +108,8 @@ namespace SortingViewer.Controller
         private void UI_StopSort(object sender, EventArgs e) {
             if(_SortWorker.WorkerSupportsCancellation == true) {
                 // Cancel the asynchronous operation.
-                _SortWorker.CancelAsync();
+                //_SortWorker.CancelAsync();
+                _SortThread.StopTheSortAlgorythm();
             }
         }
         private void UI_StartSort(object sender, EventArgs e) {
