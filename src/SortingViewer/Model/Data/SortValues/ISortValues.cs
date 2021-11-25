@@ -8,8 +8,7 @@ namespace SortingViewer.Model.Data.SortValues
 {
     public interface ISortValues
     {
-        int[] Values { get; set; }
+        int[] Values { get;}
         float[] GetValuesNormalized();
-       
     }
 }

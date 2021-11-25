@@ -104,18 +104,18 @@ namespace SortingViewer.Controller
 
 
         #region PRIVATE
-        private class SortWorkerArguments {
-            public ISortValues SortValues { get => _SortValues; }
-            public ISortAlgorythm SortAlgoryth { get => _SortAlgorythm; }
+        //private class SortWorkerArguments {
+        //    public ISortValues SortValues { get => _SortValues; }
+        //    public ISortAlgorythm SortAlgoryth { get => _SortAlgorythm; }
             
-            ISortValues _SortValues;
-            ISortAlgorythm _SortAlgorythm;
+        //    ISortValues _SortValues;
+        //    ISortAlgorythm _SortAlgorythm;
                 
-            public SortWorkerArguments(ISortValues SortValues,ISortAlgorythm SortAlgorythm) {
-                _SortValues = SortValues;
-                _SortAlgorythm = SortAlgorythm;
-            }
-        }
+        //    public SortWorkerArguments(ISortValues SortValues,ISortAlgorythm SortAlgorythm) {
+        //        _SortValues = SortValues;
+        //        _SortAlgorythm = SortAlgorythm;
+        //    }
+        //}
 
         #endregion PRIVATE 
 

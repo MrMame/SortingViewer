@@ -9,7 +9,7 @@ using SortingViewer.Model.Data.SortValues;
 
 using NUnit.Framework;
 
-using TestAlgos = SortingViewer.Model.SortAlgorythm;
+using SortingViewer.Model.SortAlgorythm;
 
 
 namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
@@ -31,7 +31,7 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
         [TestCase(new int[] { 3, 5, 7, 9, 10, 2, 6, 8, 1, 4 },
                   new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
         public void DoSort___is_Sorting_Values(int[] testVals, int[] expectedVals) {
-            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
+            BubbleSort sort = new BubbleSort();
             SortValues values = new SortValues(testVals);
 
             sort.DoSort(values);
@@ -51,12 +51,12 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
             /* Event Checks from this example
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
-            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
+            BubbleSort sort = new BubbleSort();
             SortValues values = new SortValues(testVals);
             // Register Finish EventHandler
             bool FinishEventFired = false;
             int numberOfSteps = 0;
-            sort.SortFinish += delegate (object sender, TestAlgos.SortFinishEventArgs e) {
+            sort.SortFinish += delegate (object sender, SortFinishEventArgs e) {
                 FinishEventFired = true;
                 numberOfSteps = e.TotalSteps;
             };
@@ -83,10 +83,10 @@ namespace SortingViewer_Tests.Tests.Model.SortAlgorythm {
                https://stackoverflow.com/questions/248989/unit-testing-that-events-are-raised-in-c-sharp-in-order 
             */
             SortValues values = new SortValues(testVals);
-            TestAlgos.SortAlgorythm_BubbleSortMock sort = new TestAlgos.SortAlgorythm_BubbleSortMock();
+            BubbleSort sort = new BubbleSort();
             // Register Finish EventHandler
             int ValueChangedEventCounter = 0;
-            sort.ValueChanged += delegate (object sender, TestAlgos.ValueChangedEventArgs e) {
+            sort.ValueChanged += delegate (object sender, ValueChangedEventArgs e) {
                 ValueChangedEventCounter++;
             };
             // Do

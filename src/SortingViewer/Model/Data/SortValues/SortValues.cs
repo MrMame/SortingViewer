@@ -15,7 +15,6 @@ namespace SortingViewer.Model.Data.SortValues {
         /// </summary>
         public int[] Values { 
             get { return _values; }
-            set{ _values = value; }
         }
         #endregion
 
