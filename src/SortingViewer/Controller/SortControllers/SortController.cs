@@ -27,7 +27,6 @@ namespace SortingViewer.Controller
         public ISortValues SortValues { get => _SortValues; }
 
         SortWorkerStates _SortRunningState = SortWorkerStates.Sort_Ready;
-        BackgroundWorker _SortWorker;
         SortAlgorythmThread _SortThread;
 
         IUserInput _UI;
@@ -55,49 +54,14 @@ namespace SortingViewer.Controller
             _UI.SetSortAlgorythm += UI_SetSortAlgorythm;
             _UI.LoadSortAlgorythmNames(SortAlgorythmManager.GetSortAlgorythmsNames().ToArray());
 
-            _SortWorker = new BackgroundWorker();
-            _SortWorker.WorkerReportsProgress = true;
-            _SortWorker.WorkerSupportsCancellation = true;
-            _SortWorker.DoWork += _SortWorker_DoWork;
-            _SortWorker.RunWorkerCompleted += _SortWorker_RunWorkerCompleted;
-            _SortWorker.ProgressChanged += _SortWorker_ProgressChanged;
-
         }
         #endregion PUBLIC 
-
-
-
-        #region SORTWORKER__EVENT-HANDLER 
-        private void _SortWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) {
-            throw new NotImplementedException();
-        }
-
-        private void _SortWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-            this._SortRunningState = SortWorkerStates.Sort_Finished;
-        }
-
-        private void _SortWorker_DoWork(object sender, DoWorkEventArgs e) {
-            _SortRunningState = SortWorkerStates.Sort_Running;
-
-            BackgroundWorker worker = sender as BackgroundWorker;
-            SortWorkerArguments workerArgs = (SortWorkerArguments)e.Argument;
-
-            //workerArgs.SortAlgoryth.SetValues(workerArgs.SortValues);
-            //workerArgs.SortAlgoryth.DoSort(workerArgs.SortValues);
-            _SortThread = SortAlgorythmThreadFactory.CreateSortAlgorythmThread(workerArgs.SortAlgoryth);
-            //_SortThread.ValueChanged += this.onSortAlgorythmValueChanged;
-            //_SortThread.SortFinish += this.onSortAlgorythmSortFinish;
-            _SortThread.StartTheSortAlgorythm(workerArgs.SortValues);
-
-        }
-        #endregion SORTWORKER__EVENT-HANDLER   
 
 
 
         #region UI__EVENT-HANDLER
         private void UI_SetSortAlgorythm(object sender, SetSortAlgorythmEventArgs e) {
             _SortAlgorythm = _SortAlgorythmManager.GetAlgorythm(e.SortAlgorythmName);
-            // SortAlgorythm Events fror inform the controller about its progress
             _SortAlgorythm.ValueChanged += new EventHandler<ValueChangedEventArgs>(onSortAlgorythmValueChanged);
             _SortAlgorythm.SortFinish += new EventHandler<SortFinishEventArgs>(onSortAlgorythmSortFinish);
         }
@@ -106,15 +70,12 @@ namespace SortingViewer.Controller
             _ValueView.ShowValues(_SortValues);
         }
         private void UI_StopSort(object sender, EventArgs e) {
-            if(_SortWorker.WorkerSupportsCancellation == true) {
-                // Cancel the asynchronous operation.
-                //_SortWorker.CancelAsync();
-                _SortThread.StopTheSortAlgorythm();
-            }
+            _SortThread.StopTheSortAlgorythm();
         }
         private void UI_StartSort(object sender, EventArgs e) {
-            SortWorkerArguments wArgs = new SortWorkerArguments(_SortValues, _SortAlgorythm);
-            _SortWorker.RunWorkerAsync(wArgs);
+            _SortThread = SortAlgorythmThreadFactory.CreateSortAlgorythmThread(_SortAlgorythm);
+            _SortThread.ThreadStopped += SortThread_onThreadStopped;
+            _SortThread.StartTheSortAlgorythm(_SortValues);
         }
         #endregion UI__EVENT-HANDLER  
 
@@ -126,10 +87,17 @@ namespace SortingViewer.Controller
             _StatisticValues.NumberShifts = e.NumberShifts;
             _StatisticView.ShowStatistics(_StatisticValues);
             _ValueView.ShowValues(_SortValues);
+            _SortRunningState = SortWorkerStates.Sort_Running;
         }
         private void onSortAlgorythmSortFinish(object sender, SortFinishEventArgs e) {
             _StatisticView.ShowStatistics(_StatisticValues);
             _ValueView.ShowValues(_SortValues);
+            _SortRunningState = SortWorkerStates.Sort_Finished;
+        }
+        #endregion
+        #region SortThread___EVENT-HANLDER
+        private void SortThread_onThreadStopped(object sender, EventArgs e) {
+            _SortRunningState = SortWorkerStates.Sort_Stopped;
         }
         #endregion
 
