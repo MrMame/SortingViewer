@@ -24,12 +24,13 @@ namespace SortingViewer.Model.SortAlgorythm {
         }
         public void StopTheSortAlgorythm() {
             _Thread.Abort();
+            if(ThreadStopped != null) ThreadStopped(this, null);
         }
 
 
         private void DoTheWork(object sortValues) {
             _SortAlgorythm.DoSort((ISortValues)sortValues);
-            if(ThreadStopped != null) ThreadStopped(this, null);
+            
         }
 
     }
