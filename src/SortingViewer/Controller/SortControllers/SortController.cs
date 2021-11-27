@@ -34,7 +34,7 @@ namespace SortingViewer.Controller
         IStatisticsView _StatisticView;
         ISortAlgorythmManager _SortAlgorythmManager;
         ISortAlgorythm _SortAlgorythm;
-        ISortValues _SortValues;
+        ISortValues _SortValues = SortValuesFactory.CreateStandardSortValues();
         IStatisticValues _StatisticValues;
 
         #region PUBLIC

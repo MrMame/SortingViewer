@@ -15,7 +15,7 @@ namespace SortingViewer.Views.ValueViews {
     {
 
         private ISortValues _Values;
-        private ISortValues _initValues = SortValuesFactory.CreateStandardSortValues(10,25,40,25,1,12,40,34,50,23,33,72,37,42,13,25,6,95,100);
+        private ISortValues _initValues = SortValuesFactory.CreateStandardSortValues();
 
         private Bitmap _drawingBitmap;      // Bitmap for DoubleBuffered Drawing
         private int _padding = 5;           
