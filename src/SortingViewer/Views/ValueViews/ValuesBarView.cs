@@ -17,10 +17,10 @@ namespace SortingViewer.Views.ValueViews {
         private ISortValues _Values;
         private ISortValues _initValues = SortValuesFactory.CreateStandardSortValues(10,25,40,25,1,12,40,34,50,23,33,72,37,42,13,25,6,95,100);
 
-        private int _padding = 5;
+        private Bitmap _drawingBitmap;      // Bitmap for DoubleBuffered Drawing
+        private int _padding = 5;           
         private Brush _BackgroundBrush = Brushes.Black;
         private Brush _BarFillBrush = Brushes.Yellow;
-
 
 
         #region PROPERTIES
@@ -74,6 +74,7 @@ namespace SortingViewer.Views.ValueViews {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ValuesBarView_Resize(object sender, EventArgs e) {
+            _drawingBitmap = new Bitmap(this.Size.Width, this.Size.Height);
             this.Refresh();
         }
         /// <summary>
@@ -84,36 +85,33 @@ namespace SortingViewer.Views.ValueViews {
         private void ValuesBarView_Paint(object sender, PaintEventArgs e){
             // Get Grafics Objekt from the Control to draw
             var bv = (ValuesBarView)sender;
-            Graphics g = bv.CreateGraphics();
-            // RefreshBackground
-            SetBackground(bv, _BackgroundBrush);
-            DrawBars(bv,_BarFillBrush, _Values);
-            //g.DrawLine(Pens.Black, new Point(0, 0), new Point(  bv.Width, bv.Height));      // Zeichne eine Testlinie
+            SetBackgroundInMemoryBuffer(bv, _BackgroundBrush);
+            DrawBarsInMemoryBuffer(bv,_BarFillBrush, _Values);
+            e.Graphics.DrawImage(_drawingBitmap,0,0);
         }
         #endregion
 
 
         #region PRIVATES
 
-        private void DrawBars(ValuesBarView bv, Brush BarBrush, ISortValues values) {
+        private void DrawBarsInMemoryBuffer(ValuesBarView bv, Brush BarBrush, ISortValues values) {
             float cntBars = values.Values.Length;
-            float barsWidth = (bv.Width-2*_padding) / cntBars;
+            float barsWidth = (_drawingBitmap.Width-2*_padding) / cntBars;
             float barsBottomY = 0;
-
-            Graphics g = bv.CreateGraphics();
+            // Get the Memory Bitmap for drawing
+            Graphics g = Graphics.FromImage(_drawingBitmap);
+            // Draw the Bars to the Memory Bitmap
             int cntBar = -1;
             foreach(float val in values.GetValuesNormalized()) {
                 cntBar++;
                 float barsXpos = 0 + _padding + cntBar * barsWidth;
                 g.FillRectangle(BarBrush, x: barsXpos, y: barsBottomY+_padding, width: barsWidth, height: val*(bv.Height-2*_padding));
-
             }
-
         }
 
-        private void SetBackground(ValuesBarView bv, Brush BackgroundBrush) {
-            Graphics g = bv.CreateGraphics();
-            g.FillRectangle(BackgroundBrush, x: 0, y: 0, width: bv.Width, height: bv.Height);                                // Hintergrund Weiss
+        private void SetBackgroundInMemoryBuffer(ValuesBarView bv, Brush BackgroundBrush) {
+            Graphics g = Graphics.FromImage(_drawingBitmap);
+            g.FillRectangle(BackgroundBrush, x: 0, y: 0, width: _drawingBitmap.Width, height: _drawingBitmap.Height);                                // Hintergrund Weiss
         }
 
         private void DrawValues(ISortValues values) {

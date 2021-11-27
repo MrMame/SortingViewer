@@ -88,6 +88,7 @@ namespace SortingViewer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 752);
             this.Controls.Add(this.toolStripContainer1);
+            this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(491, 483);
             this.Name = "MainForm";
             this.Text = "Form1";

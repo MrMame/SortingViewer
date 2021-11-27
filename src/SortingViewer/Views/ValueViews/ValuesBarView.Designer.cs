@@ -36,6 +36,7 @@ namespace SortingViewer.Views.ValueViews {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.DoubleBuffered = true;
             this.Name = "ValuesBarView";
             this.Size = new System.Drawing.Size(377, 219);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ValuesBarView_Paint);
