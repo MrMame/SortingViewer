@@ -12,6 +12,8 @@ namespace SortingViewer_Tests.TestingMocks {
     /// Implements an endless running sort algorythm that generates a value cahnged event each 100ms
     /// </summary>
     class SortAlgorythm_EndlessMock : ISortAlgorythm {
+        public int StepDelayTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 

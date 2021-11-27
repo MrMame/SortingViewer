@@ -11,6 +11,8 @@ namespace SortingViewer_Tests.TestingMocks {
         public SortAlgorythm_EmptyMock() {
         }
 
+        public int StepDelayTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
 

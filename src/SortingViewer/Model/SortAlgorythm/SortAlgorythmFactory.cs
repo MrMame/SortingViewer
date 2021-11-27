@@ -13,6 +13,7 @@ namespace SortingViewer.Model.SortAlgorythm {
 
         public static BubbleSort CreateBubbleSort() {
             BubbleSort bs = new BubbleSort();
+            bs.StepDelayTime = 20;
             return bs;
         }
 
