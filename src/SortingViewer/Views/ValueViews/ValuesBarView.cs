@@ -21,7 +21,8 @@ namespace SortingViewer.Views.ValueViews {
         private int _padding = 5;           
         private Brush _BackgroundBrush = Brushes.Black;
         private Brush _BarFillBrush = Brushes.Yellow;
-
+        private Brush _BarFillBrushOldShiftIndx = Brushes.Orange;
+        private Brush _BarFillBrushNewShiftIndx = Brushes.Red;
 
         #region PROPERTIES
         /// <summary>
@@ -86,7 +87,7 @@ namespace SortingViewer.Views.ValueViews {
             // Get Grafics Objekt from the Control to draw
             var bv = (ValuesBarView)sender;
             SetBackgroundInMemoryBuffer(bv, _BackgroundBrush);
-            DrawBarsInMemoryBuffer(bv,_BarFillBrush, _Values);
+            DrawBarsInMemoryBuffer(bv,_Values);
             e.Graphics.DrawImage(_drawingBitmap,0,0);
         }
         #endregion
@@ -94,7 +95,7 @@ namespace SortingViewer.Views.ValueViews {
 
         #region PRIVATES
 
-        private void DrawBarsInMemoryBuffer(ValuesBarView bv, Brush BarBrush, ISortValues values) {
+        private void DrawBarsInMemoryBuffer(ValuesBarView bv,ISortValues values) {
             float cntBars = values.Values.Length;
             float barsWidth = (_drawingBitmap.Width-2*_padding) / cntBars;
             float barsBottomY = 0;
@@ -105,7 +106,14 @@ namespace SortingViewer.Views.ValueViews {
             foreach(float val in values.GetValuesNormalized()) {
                 cntBar++;
                 float barsXpos = 0 + _padding + cntBar * barsWidth;
-                g.FillRectangle(BarBrush, x: barsXpos, y: barsBottomY+_padding, width: barsWidth, height: val*(bv.Height-2*_padding));
+                // Select the Brush
+                Brush DrawingBrush = _BarFillBrush;
+                if(cntBar == _Values.OldIndxOfLastShift) { 
+                    DrawingBrush = _BarFillBrushOldShiftIndx; }
+                if(cntBar == _Values.NewIndxOfLastShift) { 
+                    DrawingBrush = _BarFillBrushNewShiftIndx; }
+                // Draw the bar
+                g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY+_padding, width: barsWidth, height: val*(bv.Height-2*_padding));
             }
         }
 

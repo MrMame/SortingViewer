@@ -8,14 +8,16 @@ namespace SortingViewer.Model.Data.SortValues {
     public class SortValues : ISortValues {
 
         int[] _values;
+        int _OldIndxofLastShift=0;
+        int _NewIndxofLastShift=0;
 
         #region PROPERTIES
         /// <summary>
         /// Raw Values
         /// </summary>
-        public int[] Values { 
-            get { return _values; }
-        }
+        public int[] Values { get => _values; }
+        public int OldIndxOfLastShift { get => _OldIndxofLastShift; set => _OldIndxofLastShift = value; }
+        public int NewIndxOfLastShift { get => _NewIndxofLastShift; set => _NewIndxofLastShift = value; }
         #endregion
 
 

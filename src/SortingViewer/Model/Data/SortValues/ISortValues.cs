@@ -8,6 +8,8 @@ namespace SortingViewer.Model.Data.SortValues
 {
     public interface ISortValues
     {
+        int OldIndxOfLastShift { get; set; }
+        int NewIndxOfLastShift { get; set; }
         int[] Values { get;}
         float[] GetValuesNormalized();
     }

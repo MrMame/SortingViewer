@@ -27,7 +27,10 @@ namespace SortingViewer.Model.SortAlgorythm
                         int tmp = SortValues.Values[i + 1];
                         SortValues.Values[i + 1] = SortValues.Values[i];
                         SortValues.Values[i] = tmp;
+                        // now comes the non-sort-algorythm stuff 
                         nShifts++;
+                        SortValues.OldIndxOfLastShift = i;
+                        SortValues.NewIndxOfLastShift = i + 1;
                         if(ValueChanged != null) ValueChanged(this, new ValueChangedEventArgs() { StepNumber = nSteps, NumberShifts = nShifts });
                         Thread.Sleep(_StepDelayTime);
                     } // Ende if
