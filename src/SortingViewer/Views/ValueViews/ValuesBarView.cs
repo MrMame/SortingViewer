@@ -96,16 +96,25 @@ namespace SortingViewer.Views.ValueViews {
         #region PRIVATES
 
         private void DrawBarsInMemoryBuffer(ValuesBarView bv,ISortValues values) {
+
+            int BARSPACE = 2;
+
             float cntBars = values.Values.Length;
-            float barsWidth = (_drawingBitmap.Width-2*_padding) / cntBars;
-            float barsBottomY = 0;
+            float barsWidth = ((_drawingBitmap.Width-2*_padding) / cntBars);
+            float barsBottomY = _drawingBitmap.Height;
+            int barsSpace = 1;
+            float BarsHeadHeight = 15;
+
             // Get the Memory Bitmap for drawing
             Graphics g = Graphics.FromImage(_drawingBitmap);
             // Draw the Bars to the Memory Bitmap
             int cntBar = -1;
+            float barsHeight;
+            float barsXpos;
             foreach(float val in values.GetValuesNormalized()) {
                 cntBar++;
-                float barsXpos = 0 + _padding + cntBar * barsWidth;
+                barsXpos = 0 + _padding + cntBar * barsWidth + BARSPACE;
+                barsHeight = val * (bv.Height - 2 * _padding);
                 // Select the Brush
                 Brush DrawingBrush = _BarFillBrush;
                 if(cntBar == _Values.OldIndxOfLastShift) { 
@@ -113,7 +122,9 @@ namespace SortingViewer.Views.ValueViews {
                 if(cntBar == _Values.NewIndxOfLastShift) { 
                     DrawingBrush = _BarFillBrushNewShiftIndx; }
                 // Draw the bar
-                g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY+_padding, width: barsWidth, height: val*(bv.Height-2*_padding));
+                g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY-barsHeight+_padding, width: barsWidth-barsSpace, height: barsHeight);
+                // Seperate Bars Head with a line
+                g.DrawLine(Pens.Black, x1: barsXpos, y1: barsBottomY - barsHeight + BarsHeadHeight, x2: barsXpos + barsWidth - barsSpace, y2: barsBottomY - barsHeight + BarsHeadHeight - 2);
             }
         }
 
