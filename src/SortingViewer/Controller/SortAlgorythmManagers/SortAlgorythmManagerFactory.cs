@@ -9,6 +9,7 @@ namespace SortingViewer.Controller.SortAlgorythmManagers {
     class SortAlgorythmManagerFactory {
         public static SortAlgorythmManager CreatePreloadedManager() {
             SortAlgorythmManager sam = new SortAlgorythmManager();
+            sam.AddAlgorythm("ShakerSort", SortAlgorythmFactory.CreateShakerSort());
             sam.AddAlgorythm("BubbleSort", SortAlgorythmFactory.CreateBubbleSort());
             sam.AddAlgorythm("BinarySort", SortAlgorythmFactory.CreateBinarySort());
             return sam;

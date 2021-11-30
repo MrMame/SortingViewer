@@ -17,6 +17,11 @@ namespace SortingViewer.Model.SortAlgorythm {
             return bs;
         }
 
+        public static ShakerSort CreateShakerSort() {
+            ShakerSort ss = new ShakerSort();
+            ss.StepDelayTime = 20;
+            return ss;
+        }
 
     }
 }
