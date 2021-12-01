@@ -62,6 +62,7 @@ namespace SortingViewer.Controller
         #region UI__EVENT-HANDLER
         private void UI_SetSortAlgorythm(object sender, SetSortAlgorythmEventArgs e) {
             _SortAlgorythm = _SortAlgorythmManager.GetAlgorythm(e.SortAlgorythmName);
+            _SortAlgorythm.StepDelayTime = e.StepDelayTime;
             _SortAlgorythm.ValueChanged += new EventHandler<ValueChangedEventArgs>(onSortAlgorythmValueChanged);
             _SortAlgorythm.SortFinish += new EventHandler<SortFinishEventArgs>(onSortAlgorythmSortFinish);
             _SortAlgorythm.NextCheckingStep += new EventHandler<NextCheckingStepEventArgs>(onNextCheckingStep);

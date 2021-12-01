@@ -32,7 +32,10 @@ namespace SortingViewer.Views.UserInput {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSetValues = new System.Windows.Forms.Button();
             this.txtSortValues = new System.Windows.Forms.TextBox();
+            this.numStepDelay = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStepDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStartSort
@@ -93,15 +96,18 @@ namespace SortingViewer.Views.UserInput {
             this.tableLayoutPanel1.Controls.Add(this.btnStartSort, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnSetValues, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtSortValues, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.numStepDelay, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 184);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -125,6 +131,39 @@ namespace SortingViewer.Views.UserInput {
             this.txtSortValues.TabIndex = 5;
             this.txtSortValues.Text = resources.GetString("txtSortValues.Text");
             // 
+            // numStepDelay
+            // 
+            this.numStepDelay.Location = new System.Drawing.Point(3, 120);
+            this.numStepDelay.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numStepDelay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numStepDelay.Name = "numStepDelay";
+            this.numStepDelay.Size = new System.Drawing.Size(75, 20);
+            this.numStepDelay.TabIndex = 6;
+            this.numStepDelay.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numStepDelay.ValueChanged += new System.EventHandler(this.numStepDelay_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 2);
+            this.label2.Location = new System.Drawing.Point(3, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Select Sort Algorythm:";
+            // 
             // UserInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +173,7 @@ namespace SortingViewer.Views.UserInput {
             this.Size = new System.Drawing.Size(320, 184);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStepDelay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,5 +187,7 @@ namespace SortingViewer.Views.UserInput {
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSetValues;
         private System.Windows.Forms.TextBox txtSortValues;
+        private System.Windows.Forms.NumericUpDown numStepDelay;
+        private System.Windows.Forms.Label label2;
     }
 }

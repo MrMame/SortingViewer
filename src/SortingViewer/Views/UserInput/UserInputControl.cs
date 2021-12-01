@@ -52,12 +52,16 @@ namespace SortingViewer.Views.UserInput {
             if(SetValues != null) SetValues(this,ea);
         }
         private void cmbSelectSortAlgorythm_SelectedIndexChanged(object sender, EventArgs e) {
-            ComboBox cb = (ComboBox)sender;
-            SetSortAlgorythmEventArgs ea = new SetSortAlgorythmEventArgs() { SortAlgorythmName = cb.Text };
+            SetSortAlgorythmEventArgs ea = new SetSortAlgorythmEventArgs() { SortAlgorythmName = cmbSelectSortAlgorythm.Text , StepDelayTime = (int)numStepDelay.Value};
             if(SetSortAlgorythm != null) SetSortAlgorythm(this, ea);
         }
-        #endregion EVENTS
+        private void numStepDelay_ValueChanged(object sender, EventArgs e) {
+            SetSortAlgorythmEventArgs ea = new SetSortAlgorythmEventArgs() { SortAlgorythmName = cmbSelectSortAlgorythm.Text, StepDelayTime = (int)numStepDelay.Value };
+            if(SetSortAlgorythm != null) SetSortAlgorythm(this, ea);
 
+        }
+
+        #endregion EVENTS
 
     }
 }

@@ -13,13 +13,13 @@ namespace SortingViewer.Model.SortAlgorythm {
 
         public static BubbleSort CreateBubbleSort() {
             BubbleSort bs = new BubbleSort();
-            bs.StepDelayTime = 20;
+            bs.StepDelayTime = 100;
             return bs;
         }
 
         public static ShakerSort CreateShakerSort() {
             ShakerSort ss = new ShakerSort();
-            ss.StepDelayTime = 20;
+            ss.StepDelayTime = 100;
             return ss;
         }
 

@@ -68,7 +68,7 @@ namespace SortingViewer
             // 
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1078, 727);
-            this.splitContainer1.SplitterDistance = 120;
+            this.splitContainer1.SplitterDistance = 167;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -78,7 +78,7 @@ namespace SortingViewer
             this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Size = new System.Drawing.Size(1078, 120);
+            this.splitContainer2.Size = new System.Drawing.Size(1078, 167);
             this.splitContainer2.SplitterDistance = 529;
             this.splitContainer2.TabIndex = 0;
             // 

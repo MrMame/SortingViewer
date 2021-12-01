@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 namespace SortingViewer.Views.UserInput {
     public class SetSortAlgorythmEventArgs:EventArgs {
         public string SortAlgorythmName { get; set; }
+        public int StepDelayTime { get; set; }
     }
 }
