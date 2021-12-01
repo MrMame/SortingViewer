@@ -12,6 +12,7 @@ namespace SortingViewer.Model.SortAlgorythm
 
         event EventHandler <ValueChangedEventArgs> ValueChanged;
         event EventHandler <SortFinishEventArgs> SortFinish;
+        event EventHandler <NextCheckingStepEventArgs> NextCheckingStep;
 
         int StepDelayTime { get; set; }
         void DoSort(ISortValues Values);

@@ -12,11 +12,13 @@ namespace SortingViewer.Model.SortAlgorythm {
 
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
         public event EventHandler<SortFinishEventArgs> SortFinish;
+        public event EventHandler<NextCheckingStepEventArgs> NextCheckingStep;
 
         int _nSteps;
         int _nShifts;
         bool _hasChanged;
         int _StepDelayTime=10;
+        
 
 
         public void DoSort(ISortValues Values) {
@@ -34,8 +36,8 @@ namespace SortingViewer.Model.SortAlgorythm {
                     if(Values.Values[i - 1] > Values.Values[i]) {
                         ShiftValuesIndices(Values, oldIdx: i - 1, newIdx: i);
                         DoShiftInfo();}
+                    DoNextCheckingStepInfo(Values, LastCheckedIndex:i);
                     _nSteps++;
-                    Thread.Sleep(_StepDelayTime);
                 }
                 upperThresh--;
 
@@ -43,8 +45,8 @@ namespace SortingViewer.Model.SortAlgorythm {
                     if(Values.Values[i - 1] > Values.Values[i]) {
                         ShiftValuesIndices(Values, oldIdx: i, newIdx: i-1);
                         DoShiftInfo();}
+                    DoNextCheckingStepInfo(Values, LastCheckedIndex:i-1);
                     _nSteps++;
-                    Thread.Sleep(_StepDelayTime);
                 }
                 lowerThresh++;
             
@@ -55,7 +57,11 @@ namespace SortingViewer.Model.SortAlgorythm {
         }
 
       
-
+        private void DoNextCheckingStepInfo(ISortValues SortValues, int LastCheckedIndex) {
+            SortValues.LastCheckedIndx = LastCheckedIndex;
+            if(NextCheckingStep != null) NextCheckingStep(this, new NextCheckingStepEventArgs() { SortValues = SortValues, StepNumber = _nSteps });
+            Thread.Sleep(_StepDelayTime);
+        }
         private void DoShiftInfo() {
             _hasChanged = true;
             _nShifts++;

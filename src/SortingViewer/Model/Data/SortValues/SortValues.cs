@@ -10,6 +10,7 @@ namespace SortingViewer.Model.Data.SortValues {
         int[] _values;
         int _OldIndxofLastShift=0;
         int _NewIndxofLastShift=0;
+        int _LastCheckedIndex = 0;
 
         #region PROPERTIES
         /// <summary>
@@ -18,6 +19,7 @@ namespace SortingViewer.Model.Data.SortValues {
         public int[] Values { get => _values; }
         public int OldIndxOfLastShift { get => _OldIndxofLastShift; set => _OldIndxofLastShift = value; }
         public int NewIndxOfLastShift { get => _NewIndxofLastShift; set => _NewIndxofLastShift = value; }
+        public int LastCheckedIndx { get => _LastCheckedIndex; set => _LastCheckedIndex = value; }
         #endregion
 
 

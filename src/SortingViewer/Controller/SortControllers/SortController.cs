@@ -64,6 +64,7 @@ namespace SortingViewer.Controller
             _SortAlgorythm = _SortAlgorythmManager.GetAlgorythm(e.SortAlgorythmName);
             _SortAlgorythm.ValueChanged += new EventHandler<ValueChangedEventArgs>(onSortAlgorythmValueChanged);
             _SortAlgorythm.SortFinish += new EventHandler<SortFinishEventArgs>(onSortAlgorythmSortFinish);
+            _SortAlgorythm.NextCheckingStep += new EventHandler<NextCheckingStepEventArgs>(onNextCheckingStep);
         }
         private void UI_SetValues(object sender, SetSortValuesEventArgs e) {
             _SortValues = e.SortValues;
@@ -82,15 +83,22 @@ namespace SortingViewer.Controller
 
 
         #region ISortAlgorythm___EVENT-HANDLER
-        private void onSortAlgorythmValueChanged(object sender, ValueChangedEventArgs e) {
+        private void onNextCheckingStep(object sender, NextCheckingStepEventArgs e) {
+            // Show Statistics inide view
             _StatisticValues.StepNumber = e.StepNumber;
-            _StatisticValues.NumberShifts = e.NumberShifts;
             _StatisticView.ShowStatistics(_StatisticValues);
+            // Print Bars
+            _ValueView.ShowValues(e.SortValues);
+        }
+        private void onSortAlgorythmValueChanged(object sender, ValueChangedEventArgs e) {
+            // Store the info in statistic vValues
+            _StatisticValues.NumberShifts = e.NumberShifts;
+            // Print View
             _ValueView.ShowValues(_SortValues);
             _SortRunningState = SortWorkerStates.Sort_Running;
         }
         private void onSortAlgorythmSortFinish(object sender, SortFinishEventArgs e) {
-            _StatisticView.ShowStatistics(_StatisticValues);
+            // Print View
             _ValueView.ShowValues(_SortValues);
             _SortRunningState = SortWorkerStates.Sort_Finished;
         }
@@ -103,21 +111,7 @@ namespace SortingViewer.Controller
 
 
 
-        #region PRIVATE
-        //private class SortWorkerArguments {
-        //    public ISortValues SortValues { get => _SortValues; }
-        //    public ISortAlgorythm SortAlgoryth { get => _SortAlgorythm; }
-            
-        //    ISortValues _SortValues;
-        //    ISortAlgorythm _SortAlgorythm;
-                
-        //    public SortWorkerArguments(ISortValues SortValues,ISortAlgorythm SortAlgorythm) {
-        //        _SortValues = SortValues;
-        //        _SortAlgorythm = SortAlgorythm;
-        //    }
-        //}
-
-        #endregion PRIVATE 
+       
 
 
 

@@ -11,6 +11,8 @@ namespace SortingViewer.Model.Data.SortValues
         int OldIndxOfLastShift { get; set; }
         int NewIndxOfLastShift { get; set; }
         int[] Values { get;}
+        int LastCheckedIndx { get; set; }
+
         float[] GetValuesNormalized();
     }
 }

@@ -23,6 +23,8 @@ namespace SortingViewer.Views.ValueViews {
         private Brush _BarFillBrush = Brushes.Yellow;
         private Brush _BarFillBrushOldShiftIndx = Brushes.Orange;
         private Brush _BarFillBrushNewShiftIndx = Brushes.Red;
+        private Brush _BarFillBrushStepMarker = Brushes.White;
+        private float stepMarkersHeight = 10;
 
         #region PROPERTIES
         /// <summary>
@@ -122,9 +124,15 @@ namespace SortingViewer.Views.ValueViews {
                 if(cntBar == _Values.NewIndxOfLastShift) { 
                     DrawingBrush = _BarFillBrushNewShiftIndx; }
                 // Draw the bar
-                g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY-barsHeight+_padding, width: barsWidth-barsSpace, height: barsHeight);
+                g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY-barsHeight - stepMarkersHeight + _padding, width: barsWidth-barsSpace, height: barsHeight - stepMarkersHeight);
                 // Seperate Bars Head with a line
                 g.DrawLine(Pens.Black, x1: barsXpos, y1: barsBottomY - barsHeight + BarsHeadHeight, x2: barsXpos + barsWidth - barsSpace, y2: barsBottomY - barsHeight + BarsHeadHeight - 2);
+                if(cntBar == values.LastCheckedIndx) {
+                    // Draw the Step Marker
+                    DrawingBrush = _BarFillBrushStepMarker;
+                    g.FillRectangle(DrawingBrush, x: barsXpos, y: barsBottomY - stepMarkersHeight, width: barsWidth - barsSpace, height: stepMarkersHeight);
+                }
+
             }
         }
 
