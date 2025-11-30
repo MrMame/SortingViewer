@@ -30,7 +30,11 @@ namespace SortingViewer.Model.SortAlgorythm {
 
         private void DoTheWork(object sortValues) {
             _SortAlgorythm.DoSort((ISortValues)sortValues);
-            
+        }
+
+        public bool CheckIsRunning () {
+            return _Thread.IsAlive;
+
         }
 
     }

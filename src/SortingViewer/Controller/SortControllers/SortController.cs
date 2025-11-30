@@ -75,6 +75,7 @@ namespace SortingViewer.Controller
             _SortThread.StopTheSortAlgorythm();
         }
         private void UI_StartSort(object sender, EventArgs e) {
+            if (_SortThread != null && _SortThread.CheckIsRunning ()) { _SortThread.StopTheSortAlgorythm (); };
             _SortThread = SortAlgorythmThreadFactory.CreateSortAlgorythmThread(_SortAlgorythm);
             _SortThread.ThreadStopped += SortThread_onThreadStopped;
             _SortThread.StartTheSortAlgorythm(_SortValues);
